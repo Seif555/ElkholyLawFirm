@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ElKholy Law Firm</title>
 
-  <!-- AOS (Animate On Scroll) CSS -->
+  <!-- AOS (Animate on Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- Basic styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Sticky top nav (auto-sticks when scrolling) -->
+  <!-- Sticky header -->
   <header class="topbar" id="topbar">
     <div class="container">
       <div class="brand">ElKholy Law Firm</div>
@@ -25,9 +24,9 @@
     </div>
   </header>
 
-  <!-- Hero banner -->
+  <!-- Hero -->
   <section class="hero" id="hero">
-    <img src="assets/hero.jpg" alt="ElKholy Law Firm" class="hero-img" />
+    <img src="assets/hero.jpg" class="hero-img" alt="Firm banner">
     <div class="hero-overlay">
       <h1 data-aos="fade-down">ElKholy Law Firm</h1>
       <p data-aos="fade-up">Experienced legal services — trusted, professional.</p>
@@ -44,7 +43,7 @@
   <section class="section" id="about">
     <div class="container" data-aos="fade-up">
       <h2>About Us</h2>
-      <p>Short firm description... (paste your copy here)</p>
+      <p>Short firm description — replace this copy in index.html or switch to Sheet-driven content later.</p>
     </div>
   </section>
 
@@ -56,12 +55,11 @@
         <li>Civil Cases</li>
         <li>Criminal Defense</li>
         <li>Contract Law</li>
-        <!-- add more -->
       </ul>
     </div>
   </section>
 
-  <!-- Achievements (populated from achievements.json) -->
+  <!-- Achievements (populated from Google Sheet CSV) -->
   <section class="section" id="achievements">
     <div class="container">
       <h2 data-aos="fade-up">Achievements</h2>
@@ -73,64 +71,97 @@
   <section class="section" id="contact">
     <div class="container" data-aos="fade-up">
       <h2>Contact Us</h2>
-      <p>Address: ...</p>
+      <p>Address: (put your address here)</p>
       <p>Email: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
       <p>Phone: +20 ...</p>
 
-      <!-- Example embed (YouTube will play inline if Unlisted/Public) -->
-      <div class="video-embed" data-aos="fade-up" id="video-embed"></div>
+      <div id="video-embed" class="video-embed" data-aos="fade-up"></div>
     </div>
   </section>
 
-  <!-- Floating WhatsApp button -->
+  <!-- Floating WhatsApp -->
   <a class="whatsapp-fab" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">
     <span>WA</span>
   </a>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">© ElKholy Law Firm</div>
   </footer>
 
-  <!-- AOS JS -->
+  <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
 
-  <!-- Netlify CMS preview (not required on index, but fine to include) -->
   <script>
-    AOS.init({ once: true, duration: 700 });
-  </script>
+    // ---------- CONFIG ----------
+    // Paste here the publish-to-web CSV URL of your Google Sheet:
+    // Example format: https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/pub?output=csv
+    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRAVut55QvKSXF4i9OgmDR56mI4atBwMIJtuX2xda5gkAhviQ5i0sGJnBN2nzyc1_KfGyHu2LmOKQb9/pub?gid=0&single=true&output=csv";
 
-  <!-- script to load achievements.json and inject into grid -->
-  <script>
-    async function loadAchievements(){
+    // Optional: default video to embed in contact if not set in sheet
+    const DEFAULT_VIDEO_EMBED = ""; // e.g. "https://www.youtube.com/embed/VIDEO_ID"
+
+    // ---------- END CONFIG ----------
+
+    AOS.init({ once:true, duration:700 });
+
+    // parse and render achievements from CSV using PapaParse
+    function renderAchievements(data){
+      const grid = document.getElementById('achievements-grid');
+      grid.innerHTML = '';
+      data.forEach((row, idx)=>{
+        // expected columns: title, text, image_url, youtube_url, aos
+        const title = row.title || '';
+        const text = row.text || '';
+        const image = row.image_url || '';
+        const youtube = row.youtube_url || '';
+        const aos = row.aos || 'fade-up';
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-aos', aos);
+
+        card.innerHTML = `
+          ${image ? `<img src="${image}" alt="${escapeHtml(title)}">` : ''}
+          <h3>${escapeHtml(title)}</h3>
+          <p>${escapeHtml(text)}</p>
+          ${ youtube ? `<div class="yt"><a href="${youtube}" target="_blank">Watch video</a></div>` : '' }
+        `;
+        grid.appendChild(card);
+      });
+      AOS.refresh();
+    }
+
+    function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+
+    // fetch CSV and parse
+    async function loadSheet(){
+      if(!SHEET_CSV_URL || SHEET_CSV_URL.includes("REPLACE_WITH")) {
+        console.warn('No sheet CSV URL configured. Add your published Google Sheet CSV URL in index.html.');
+        // fallback sample entries
+        renderAchievements([
+          {title:"Sample: Contract Win 2024", text:"Represented client successfully.", image_url:"assets/ach1.jpg", youtube_url:"", aos:"fade-up"},
+          {title:"Sample: Community Workshop", text:"Hosted pro-bono workshop.", image_url:"assets/ach2.jpg", youtube_url:"", aos:"fade-left"}
+        ]);
+        return;
+      }
       try{
-        const res = await fetch('/achievements.json', { cache: "no-store" });
-        const data = await res.json();
-        const grid = document.getElementById('achievements-grid');
-        grid.innerHTML = '';
-        data.forEach((item, i)=>{
-          const card = document.createElement('div');
-          card.className = 'card';
-          card.setAttribute('data-aos', item.aos || 'fade-up');
-          card.innerHTML = `
-            <img src="${item.image}" alt="${escapeHtml(item.title)}">
-            <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.text)}</p>
-            ${ item.youtube ? `<div class="yt"><a href="${item.youtube}" target="_blank">Watch video</a></div>` : '' }
-          `;
-          grid.appendChild(card);
-        });
-        AOS.refresh();
-      }catch(e){
-        console.error('Failed load achievements', e);
+        const res = await fetch(SHEET_CSV_URL);
+        const csv = await res.text();
+        const parsed = Papa.parse(csv, {header:true, skipEmptyLines:true});
+        renderAchievements(parsed.data);
+      }catch(err){
+        console.error('Load sheet failed', err);
       }
     }
-    function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
-    loadAchievements();
 
-    // If you want a default video embed on contact:
-    // Put a youtube link in achievements.json or set here:
-    // document.getElementById('video-embed').innerHTML = '<iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe>'
+    loadSheet();
+
+    // If contact video embed is set from sheet optionally you could parse it similarly.
+    if(DEFAULT_VIDEO_EMBED){
+      document.getElementById('video-embed').innerHTML =
+        `<iframe src="${DEFAULT_VIDEO_EMBED}" allowfullscreen></iframe>`;
+    }
   </script>
 </body>
 </html>
