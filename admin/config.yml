@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "assets/uploads"
+
+collections:
+  - name: "achievements"
+    label: "Achievements"
+    label_singular: "Achievement"
+    editor:
+      preview: false
+    file: "achievements.json"
+    fields:
+      - {label: "Achievements", name: "achievements", widget: "list", fields: [
+          {label: "Title", name: "title", widget: "string"},
+          {label: "Image", name: "image", widget: "image"},
+          {label: "Text", name: "text", widget: "text"},
+          {label: "YouTube URL", name: "youtube", widget: "string", required: false},
+          {label: "Animation (AOS)", name: "aos", widget: "string", required: false}
+        ]}

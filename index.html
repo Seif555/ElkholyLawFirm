@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ElKholy Law Firm</title>
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Basic styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sticky top nav (auto-sticks when scrolling) -->
+  <header class="topbar" id="topbar">
+    <div class="container">
+      <div class="brand">ElKholy Law Firm</div>
+      <nav class="nav">
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#services" class="nav-link">Our Services</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero banner -->
+  <section class="hero" id="hero">
+    <img src="assets/hero.jpg" alt="ElKholy Law Firm" class="hero-img" />
+    <div class="hero-overlay">
+      <h1 data-aos="fade-down">ElKholy Law Firm</h1>
+      <p data-aos="fade-up">Experienced legal services — trusted, professional.</p>
+      <div class="hero-buttons" data-aos="zoom-in">
+        <a class="btn" href="#about">About Us</a>
+        <a class="btn" href="#services">Services</a>
+        <a class="btn" href="#achievements">Achievements</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container" data-aos="fade-up">
+      <h2>About Us</h2>
+      <p>Short firm description... (paste your copy here)</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container" data-aos="fade-up">
+      <h2>Our Services</h2>
+      <ul class="services-list">
+        <li>Civil Cases</li>
+        <li>Criminal Defense</li>
+        <li>Contract Law</li>
+        <!-- add more -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Achievements (populated from achievements.json) -->
+  <section class="section" id="achievements">
+    <div class="container">
+      <h2 data-aos="fade-up">Achievements</h2>
+      <div id="achievements-grid" class="grid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container" data-aos="fade-up">
+      <h2>Contact Us</h2>
+      <p>Address: ...</p>
+      <p>Email: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
+      <p>Phone: +20 ...</p>
+
+      <!-- Example embed (YouTube will play inline if Unlisted/Public) -->
+      <div class="video-embed" data-aos="fade-up" id="video-embed"></div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp button -->
+  <a class="whatsapp-fab" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">
+    <span>WA</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">© ElKholy Law Firm</div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Netlify CMS preview (not required on index, but fine to include) -->
+  <script>
+    AOS.init({ once: true, duration: 700 });
+  </script>
+
+  <!-- script to load achievements.json and inject into grid -->
+  <script>
+    async function loadAchievements(){
+      try{
+        const res = await fetch('/achievements.json', { cache: "no-store" });
+        const data = await res.json();
+        const grid = document.getElementById('achievements-grid');
+        grid.innerHTML = '';
+        data.forEach((item, i)=>{
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.setAttribute('data-aos', item.aos || 'fade-up');
+          card.innerHTML = `
+            <img src="${item.image}" alt="${escapeHtml(item.title)}">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
+            ${ item.youtube ? `<div class="yt"><a href="${item.youtube}" target="_blank">Watch video</a></div>` : '' }
+          `;
+          grid.appendChild(card);
+        });
+        AOS.refresh();
+      }catch(e){
+        console.error('Failed load achievements', e);
+      }
+    }
+    function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+    loadAchievements();
+
+    // If you want a default video embed on contact:
+    // Put a youtube link in achievements.json or set here:
+    // document.getElementById('video-embed').innerHTML = '<iframe src="https://www.youtube.com/embed/VIDEO_ID" ...></iframe>'
+  </script>
+</body>
+</html>

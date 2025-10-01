@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Successful Case: Contract Win 2023",
+    "image": "assets/ach1.jpg",
+    "text": "Represented a small business successfully in a contract dispute.",
+    "youtube": "",
+    "aos": "fade-up"
+  },
+  {
+    "title": "Community Legal Workshop",
+    "image": "assets/ach2.jpg",
+    "text": "Hosted a free community legal workshop for small businesses.",
+    "youtube": "https://www.youtube.com/watch?v=VIDEO_ID",
+    "aos": "fade-left"
+  }
+]
