@@ -8,250 +8,252 @@
   <!-- Arabic font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS CSS -->
+  <!-- AOS for animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <!-- Your stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Topbar -->
-  <header id="topbar" class="topbar" role="banner">
+  <!-- Top navigation (sticky) -->
+  <header class="topbar" id="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <a class="brand-link" href="#home">مجموعة الخولي القانونية</a>
+        <a class="brand-link" href="/">مجموعة الخولي القانونية</a>
       </div>
-
-      <nav class="nav" aria-label="التنقل الرئيسي">
+      <nav class="nav" role="navigation" aria-label="رئيسي">
         <a class="nav-link" href="#home">الرئيسية</a>
         <a class="nav-link" href="#about">من نحن</a>
         <a class="nav-link" href="#services">خدماتنا</a>
         <a class="nav-link" href="#events">فاعليات</a>
-        <a class="nav-link" href="#team">فريق العمل</a>
-        <a class="nav-link" href="#contact">تواصل</a>
+        <a class="nav-link" href="#team">تعرف على فريق العمل</a>
+        <a class="nav-link" href="#contact">تواصل معنا</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-overlay container" data-aos="fade-down">
-        <h1>مجموعة الخولي القانونية</h1>
-        <p class="lead">خبرة قانونية، استشارات متخصصة، ودعم منظمات المجتمع المدني.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="#about">تعرف علينا</a>
-          <a class="btn ghost" href="#contact">تواصل معنا</a>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-overlay container">
+      <h1 data-aos="fade-down">مجموعة الخولي القانونية</h1>
+      <p class="lead" data-aos="fade-up">متخصصون في قانون الجمعيات الاهلية و تنمية المجتمع</p>
+      <div class="hero-ctas" data-aos="zoom-in">
+        <a class="btn gold" href="#about">تعرف علينا</a>
+        <a class="btn ghost" href="#contact">لنعمل سوياً</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <div class="container" data-aos="fade-up">
+      <h2 id="about-title">من نحن</h2>
+      <p class="lead-paragraph">
+        تأسست مجموعة الخولى القانونية لأعمال المحاماة والاستشارات القانونية والمالية والادارية في عام 2000م و للمكتب خبرات تراكمية في العديد من فروع القانون وبشكل متخصص في قوانين تنظيم ممارسة العمل الاهلي والقوانين ذات الصلة بتنمية المجتمع ؛ ويتشرف المكتب بتقديم الدعم القانوني والاداري المتكامل لأكثر من خمسة وعشرين جمعية ومؤسسة اهلية ومنظمة دولية من خلال المراجعة والتدقيق وتقديم الحلول والتغطية القانونية والمحاسبية والادارية اللازمه لاعمالها وتقييم والتدريب وورش العمل عن طريق فريق العمل بالمكتب من مستشارين ومراجعين اداريين وماليين وقانونيين ومحاسبين قانونيين متخصصين في الادارات المالية والقانونية والاجتماعية للجمعيات والمؤسسات الاهليه.
+      </p>
+      <p><a class="muted-link" href="#services">اقرأ عن خدماتنا ↓</a></p>
+    </div>
+  </section>
+
+  <!-- SERVICES (exact six from live site) -->
+  <section id="services" class="section alt" aria-labelledby="services-title">
+    <div class="container" data-aos="fade-up">
+      <h2 id="services-title">خدماتنا</h2>
+      <p class="lead-paragraph">نسعى سعياً جاداً لتقديم أفضل الخدمات القانونية والادرية والمالية وتوفير حماية قانونية متكاملة من خلال فريق العمل من مستشارين قانونيين ومراجعين اداريين و ماليين ومحاسبين قانونيين متخصصين .</p>
+
+      <div class="services-grid">
+        <article class="service" data-aos="fade-up">
+          <h3>المراجعة القانونية</h3>
+          <p>تطوير الاستراتيجيات القانونية والسياسات العامة للمؤسسة و المراجعة القانونية لمشروعات اللوائح الداخلية واللوائح التنظيمية.</p>
+        </article>
+
+        <article class="service" data-aos="fade-up" data-aos-delay="80">
+          <h3>علاقات حكومية</h3>
+          <p>متابعة معاملات المنظمات أمام وزارة التضامن والاجراءات القانونية اللازمة للحصول على التراخيص والتصاريح اللازمة.</p>
+        </article>
+
+        <article class="service" data-aos="fade-up" data-aos-delay="120">
+          <h3>المناقصات و التعاقدات</h3>
+          <p>إعداد ومتابعة الدورة المستندية وكراسات الشروط للمناقصات والمزايدات ومتابعة الإجراءات اللازمة للحصول على الخدمات والمشتريات.</p>
+        </article>
+
+        <article class="service" data-aos="fade-up" data-aos-delay="160">
+          <h3>القضايا و المنازعات</h3>
+          <p>دراسة القضايا المتعلقة بالمؤسسة ومتابعة المنازعات وتمثيل المؤسسة أمام المحاكم ولجان التحكيم.</p>
+        </article>
+
+        <article class="service" data-aos="fade-up" data-aos-delay="200">
+          <h3>التطوير و التدريب</h3>
+          <p>تقديم خدمات تدريبية وتنظيم ورش عمل حول الإدارة القانونية للجمعيات ومنظمات المجتمع المدني.</p>
+        </article>
+
+        <article class="service" data-aos="fade-up" data-aos-delay="240">
+          <h3>التدقيق المالي</h3>
+          <p>توفير محاسبين ومراجعين ماليين متخصصين لمراجعة الحسابات والمستخلصات وحصر الأعمال للمشروعات والمؤسسات.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS / FEATURED VIDEO (full width hero-like) -->
+  <section id="events" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">فاعليات مجموعة الخولي</h2>
+
+      <!-- Full-width featured video block -->
+      <div class="featured" data-aos="fade-up">
+        <div class="featured-video">
+          <!-- Placeholder full-width video area.
+               Replace below div with an <iframe src="https://www.youtube.com/embed/VIDEO_ID" ...> when you have the URL. -->
+          <div class="featured-video-placeholder">فيديو مميز — يتم عرضه هنا عند إضافة رابط اليوتيوب</div>
+        </div>
+        <div class="featured-text">
+          <h3>عاصم الخولي يوضح الفرق بين الجمعية والمؤسسة | مع الناس</h3>
+          <p class="muted">تاريخ ومصدر: فيديو تلفزيوني / مقابلة</p>
+          <p>تواصلكم معنا يعني لنا الكثير ...</p>
         </div>
       </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container" data-aos="fade-up">
-        <h2>من نحن</h2>
-        <p>
-          مكتب محاماة واستشارات يقدم خدمات قانونية متخصصة للمنظمات والمؤسسات المدنية.
-          خبراتنا في الصياغة، الحوكمة، والتراخيص تدعم عمل شركائنا بشكل عملي.
-        </p>
+      <!-- Achievements grid (alternating slide-in) -->
+      <div id="achievements-grid" class="achievements-grid">
+        <!-- Rendered by JS from ACH array below -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Services -->
-    <section id="services" class="section alt">
-      <div class="container" data-aos="fade-up">
-        <h2>خدماتنا</h2>
-        <div class="services-grid">
-          <div class="service" data-aos="fade-up" data-aos-delay="40">
-            <h3>الاستشارات القانونية</h3>
-            <p>قضايا مدنية، عقود، وتمثيل قانوني أمام الجهات المختصة.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="80">
-            <h3>التراخيص والتنظيم</h3>
-            <p>متابعة إجراءات الترخيص والتنظيم للمنظمات والجمعيات المحلية.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="120">
-            <h3>العقود والمناقصات</h3>
-            <p>صياغة مستندات وتقييم مخاطر التعاقد والمناقصات.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="160">
-            <h3>التدريب وورش العمل</h3>
-            <p>ورش توعية وتدريب إداري وقانوني لموظفي المنظمات.</p>
-          </div>
+  <!-- TEAM -->
+  <section id="team" class="section alt">
+    <div class="container" data-aos="fade-up">
+      <h2>تعرف علي فريق العمل</h2>
+
+      <div class="team-row">
+        <div class="team-photo-large" data-aos="fade-right">
+          <!-- placeholder large photo -->
+          <div class="team-photo-placeholder">صورة كبيرة - عاصم الخولي</div>
+        </div>
+        <div class="team-text" data-aos="fade-left">
+          <h3>عاصم الخولي</h3>
+          <p class="muted">مدير مجموعة الخولى القانونية</p>
+          <p>
+            المحامي بالنقض، المستشار قانوني لمنظمات المجتمع المدني والشركات داخل وخارج مصر، عضو مجلس ادارة الاتحاد العام للجمعيات,
+            مستشار تحكيم ومُسَجَّل كوكيل براءات اختراع وتسجيل علامات تجارية، وخبير علاقات دبلوماسية وقنصلية.
+          </p>
+          <p>
+            كما يقوم أ. عاصم الخولي بالقاء مُحاضرات وتنظيم ورش عمل حول الادارة القانونية للجمعيات ومنظمات المجتمع المدني والقوانين ذات الصلة.
+            و يقوم الخولي بالعديد من الاعمال التطوعية وعضويات في مؤسسات مختلفة.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Events / Achievements -->
-    <section id="events" class="section">
-      <div class="container">
-        <h2 data-aos="fade-up">فاعليات وإنجازات</h2>
-
-        <div class="featured" data-aos="fade-up" data-aos-delay="40">
-          <div class="featured-media">
-            <div class="video-placeholder">مكان إظهار فيديو يوتيوب (يُدرج لاحقاً)</div>
-          </div>
-          <div class="featured-body">
-            <h3>مداخلة تلفزيونية</h3>
-            <p class="muted">حلقة - 19 مارس 2023</p>
-            <p>شرح حول أحكام القانون ودور المنظمات المدنية.</p>
-          </div>
-        </div>
-
-        <div id="achievements-grid" class="achievements-grid"></div>
+  <!-- Clients / Logos (right-to-left carousel / grid) -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2>من بين عملائنا الداعمين</h2>
+      <div class="clients-logos" aria-hidden="false">
+        <!-- placeholders for logos in rtl order -->
+        <div class="logo ph">شعار</div><div class="logo ph">شعار</div><div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div><div class="logo ph">شعار</div><div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div><div class="logo ph">شعار</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Team -->
-    <section id="team" class="section alt">
-      <div class="container" data-aos="fade-up">
-        <h2>فريق العمل</h2>
-        <div class="team-grid">
-          <div class="team-card" data-aos="fade-up">
-            <div class="team-photo-placeholder">عاصم الخولي</div>
-            <h3>عاصم الخولي</h3>
-            <p class="muted">محامٍ واستشاري قانوني</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="container" data-aos="fade-up">
+      <h2>تواصل معنا</h2>
+      <p>العنوان: 344 شارع الهرم, العمرانية, الجيزة, جمهورية مصر العربية</p>
+      <p>البريد: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
+      <p>الهاتف: +201117745552 | +237810045</p>
+      <p class="muted">Don’t fill this out: (تمت الإشارة إلى أن النماذج لا تُستخدم)</p>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-      <div class="container" data-aos="fade-up">
-        <h2>تواصل معنا</h2>
-        <p>العنوان: شارع الهرم، الجيزة، مصر</p>
-        <p>البريد: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
-        <p>الهاتف: +20 111 774 5552</p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Floating WhatsApp -->
   <a class="whatsapp-fab" href="https://wa.me/201117745552" target="_blank" aria-label="WhatsApp">WA</a>
 
   <footer class="footer">
-    <div class="container">© مجموعة الخولي القانونية</div>
+    <div class="container">All Rights Reserved @ ElkholyLawFirm</div>
   </footer>
 
   <!-- AOS script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Site JS -->
+  <!-- Achievements data and rendering -->
   <script>
-    // initialize AOS
     AOS.init({ once:true, duration:700, offset:120 });
 
-    // === ACHIEVEMENTS DATA ===
-    // Edit or extend this list. Put image: "assets/filename.jpg" or a public URL if you have images.
+    // ACH entries taken from the live site and expanded to match content & dates. Keep images blank for placeholders.
     const ACH = [
-      { title: "ورشة عمل: الإدارة القانونية", text: "ورشة تدريبية لتطوير مهارات فرق العمل.", image: "", date: "21 فبراير 2024", aos: "fade-left" },
-      { title: "مقال رأي: تحسين الحوكمة", text: "مقال في صحف محلية عن مبادئ الحوكمة.", image: "", date: "10 يناير 2024", aos: "fade-right" },
-      { title: "ورشة توعوية بالأقصر", text: "فعاليات توعية قانونية للمجتمع المحلي.", image: "", date: "5 ديسمبر 2023", aos: "fade-left" },
-      { title: "سلسلة تعليمية", text: "دورات وتدريب للكفاءات الشابة.", image: "", date: "28 أكتوبر 2023", aos: "fade-right" }
+      { title:"جريدة اخبار اليوم - 26 سبتمبر 2023", text:"المشاركة بالحوار الوطني, ترتيب الأولويات والسماح بمزيد من التيسيرات الضريبية", image:"", date:"26 سبتمبر 2023", aos:"fade-left" },
+      { title:"ورشة عمل - 21 فبراير 2023", text:"ورشة تعريف بقانون تنظيم ممارسة العمل الأهلي بأكاديمية التدريب بهيئة الاستثمار", image:"", date:"21 فبراير 2023", aos:"fade-right" },
+      { title:"جريدة الأخبار - 28 فبراير 2023", text:"عاصم الخولي: الاعفاء من الضرائب والرسوم يسهل أداء دورنا الوطني", image:"", date:"28 فبراير 2023", aos:"fade-left" },
+      { title:"محاولة لتشبيك المجتمع المدني - 14 يناير 2023", text:"ظهور في برنامج تحيا مصر", image:"", date:"14 يناير 2023", aos:"fade-right" },
+      { title:"جريدة الاخبار - 27 سبتمبر 2022", text:"مقال: ترتيب الأولويات والسماح بمزيد من التيسيرات الضريبية", image:"", date:"27 سبتمبر 2022", aos:"fade-left" },
+      { title:"برنامج تحيا مصر - 19 أغسطس 2022", text:"مداخلة حول توفيق الأوضاع", image:"", date:"19 أغسطس 2022", aos:"fade-right" },
+      { title:"الفضائية المصرية - 5 أغسطس 2021", text:"مقابلة ببرنامج تحيا مصر حول الإجراءات القانونية", image:"", date:"5 أغسطس 2021", aos:"fade-left" },
+      { title:"الرعايه الأسقفية - 15 فبراير 2021", text:"ورشة عمل للتعريف بقانون ممارسة العمل الأهلي", image:"", date:"15 فبراير 2021", aos:"fade-right" },
+      { title:"الجامعة الأمريكية - 5 سبتمبر 2019", text:"جلسة نقاشية حول قانون الجمعيات الأهلية", image:"", date:"5 سبتمبر 2019", aos:"fade-left" },
+      { title:"مؤسسة مصر الخير - 22 ديسمبر 2018", text:"حوار مجتمعي عن القانون والتأسيس والاعفاءات", image:"", date:"22 ديسمبر 2018", aos:"fade-right" },
+      { title:"مائدة نقاش مستديرة - 17 ديسمبر 2018", text:"مناقشة التعديلات المقترحة على قانون الجمعيات", image:"", date:"17 ديسمبر 2018", aos:"fade-left" }
     ];
 
-    // Utility: safe text insertion
-    function setText(node, text){
-      node.textContent = text === undefined || text === null ? '' : text;
-    }
+    function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
 
-    // Create placeholder node used when no image or image fails
-    function createImagePlaceholder(title){
-      const ph = document.createElement('div');
-      ph.className = 'image-placeholder';
-      setText(ph, title || 'صورة غير متوفرة');
-      return ph;
-    }
-
-    // Build one achievement row (DOM nodes, not string HTML)
-    function buildAchievementRow(item, index){
-      const row = document.createElement('div');
-      row.className = 'achievement-row';
-
-      const imgWrap = document.createElement('div');
-      imgWrap.className = 'ach-img';
-
-      if(item.image && item.image.trim()){
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.title || 'صورة';
-        // on error: hide image and show placeholder
-        img.onerror = function(){
-          img.style.display = 'none';
-          const ph = createImagePlaceholder(item.title);
-          imgWrap.appendChild(ph);
-        };
-        imgWrap.appendChild(img);
-      } else {
-        imgWrap.appendChild(createImagePlaceholder(item.title));
-      }
-
-      const txtWrap = document.createElement('div');
-      txtWrap.className = 'ach-text';
-      const h3 = document.createElement('h3');
-      setText(h3, item.title);
-      const p = document.createElement('p');
-      setText(p, item.text);
-      const d = document.createElement('div');
-      d.className = 'ach-date muted';
-      setText(d, item.date);
-
-      txtWrap.appendChild(h3);
-      txtWrap.appendChild(p);
-      txtWrap.appendChild(d);
-
-      // animation attributes (alternate)
-      const leftAnim = item.aos || 'fade-left';
-      const rightAnim = item.aos === 'fade-left' ? 'fade-right' : (item.aos || 'fade-right');
-
-      const imageFirst = (index % 2 === 0);
-      if(imageFirst){
-        imgWrap.setAttribute('data-aos', leftAnim);
-        txtWrap.setAttribute('data-aos', rightAnim);
-        row.appendChild(imgWrap);
-        row.appendChild(txtWrap);
-      } else {
-        txtWrap.setAttribute('data-aos', leftAnim);
-        imgWrap.setAttribute('data-aos', rightAnim);
-        row.appendChild(txtWrap);
-        row.appendChild(imgWrap);
-      }
-
-      return row;
-    }
-
-    // Render achievements into the grid
+    // render achievements: alternating image/text layout, slide-in AOS
     function renderAchievements(){
-      const container = document.getElementById('achievements-grid');
-      if(!container) return;
-      container.innerHTML = ''; // clear
+      const grid = document.getElementById('achievements-grid');
+      grid.innerHTML = '';
       ACH.forEach((it, idx) => {
-        const row = buildAchievementRow(it, idx);
-        container.appendChild(row);
+        const row = document.createElement('div');
+        row.className = 'achievement-row';
+
+        const imgCol = document.createElement('div');
+        imgCol.className = 'ach-img';
+        // image placeholder or image
+        if(it.image){
+          const img = document.createElement('img');
+          img.src = it.image;
+          img.alt = it.title || 'صورة';
+          img.onerror = function(){ this.style.display='none'; const ph = placeholder(it.title); imgCol.appendChild(ph); }
+          imgCol.appendChild(img);
+        } else {
+          imgCol.appendChild(placeholder(it.title));
+        }
+
+        const txtCol = document.createElement('div');
+        txtCol.className = 'ach-text';
+        txtCol.innerHTML = `<div><h3>${escapeHtml(it.title)}</h3><p>${escapeHtml(it.text)}</p><div class="ach-date muted">${escapeHtml(it.date||'')}</div>`;
+
+        // alternate ordering
+        const imageFirst = (idx % 2 === 0);
+        imgCol.setAttribute('data-aos', imageFirst ? it.aos||'fade-left' : it.aos||'fade-right');
+        txtCol.setAttribute('data-aos', imageFirst ? 'fade-right' : 'fade-left');
+
+        if(imageFirst){ row.appendChild(imgCol); row.appendChild(txtCol); }
+        else { row.appendChild(txtCol); row.appendChild(imgCol); }
+
+        grid.appendChild(row);
       });
-      // refresh AOS to pick up new elements
       if(window.AOS) AOS.refresh();
     }
 
-    // Anchor scrolling fix (offset by header height)
+    function placeholder(title){
+      const ph = document.createElement('div');
+      ph.className = 'image-placeholder';
+      ph.textContent = title || 'صورة';
+      return ph;
+    }
+
+    // anchor offset fix for sticky header (prevents topbar from covering headings)
     (function(){
-      const header = document.getElementById('topbar');
-
-      function headerHeight(){
-        if(!header) return 72;
-        return header.offsetHeight;
+      const header = ()=>document.querySelector('.topbar');
+      function headerHeight(){ return header() ? header().offsetHeight : 0; }
+      function smoothScrollTo(el){
+        const top = window.pageYOffset + el.getBoundingClientRect().top - (headerHeight() + 12);
+        window.scrollTo({top, behavior:'smooth'});
       }
-
-      function scrollToHash(hash){
-        if(!hash) return;
-        const target = document.querySelector(hash);
-        if(!target) return;
-        const y = window.pageYOffset + target.getBoundingClientRect().top - (headerHeight() + 12);
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-
-      // Intercept anchor clicks
       document.addEventListener('click', function(e){
         const a = e.target.closest('a[href^="#"]');
         if(!a) return;
@@ -260,22 +262,16 @@
         const target = document.querySelector(href);
         if(!target) return;
         e.preventDefault();
-        scrollToHash(href);
-        history.pushState(null, '', href);
+        smoothScrollTo(target);
+        history.pushState(null, '', hash);
       }, true);
 
-      window.addEventListener('load', function(){
-        // render first, then scroll if there's a hash
-        renderAchievements();
-        setTimeout(function(){
-          if(location.hash) scrollToHash(location.hash);
-        }, 60);
-      });
-
-      window.addEventListener('resize', function(){
-        // no-op; header height is read dynamically when scrolling
-      });
+      window.addEventListener('load', function(){ setTimeout(()=>{ if(location.hash){ const el=document.querySelector(location.hash); if(el) smoothScrollTo(el); } }, 80);});
+      window.addEventListener('resize', function(){ /* header height is recalculated dynamically */ });
     })();
+
+    // init
+    renderAchievements();
   </script>
 </body>
 </html>
