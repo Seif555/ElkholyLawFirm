@@ -3,30 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ElKholy Law Firm</title>
+  <title>ElKholy Law Firm — Demo</title>
 
-  <!-- AOS (Animate on Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- AOS for on-scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{--accent:#0b5ed7;--bg:#f8f9fb;--text:#222}
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+    .container{max-width:980px;margin:0 auto;padding:28px}
+    .topbar{position:sticky;top:0;background:white;z-index:90;border-bottom:1px solid rgba(0,0,0,0.06)}
+    .topbar .container{display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:700;padding:10px}
+    .nav .nav-link{margin-left:12px;text-decoration:none;color:#333}
+    .hero{position:relative;height:420px;overflow:hidden;background:linear-gradient(0deg,#0b5ed7,#0b5ed7)}
+    .hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:12px}
+    .hero-overlay h1{font-size:42px;margin:6px 0}
+    .hero-overlay p{font-size:18px;opacity:0.95}
+    .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;margin:6px;border-radius:6px;text-decoration:none}
+    .section{padding:48px 0}
+    h2{margin-top:0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .card{background:white;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:left;min-height:180px}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+    .no-image{height:160px;display:flex;align-items:center;justify-content:center;background:#eef3ff;border-radius:6px;color:#0b5ed7;font-weight:700}
+    .whatsapp-fab{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;z-index:120;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+    .footer{padding:18px;text-align:center;background:#fff;border-top:1px solid rgba(0,0,0,0.06)}
+    .video-embed iframe{width:100%;height:360px;border:0;border-radius:8px}
+    @media (max-width:700px){ .hero-overlay h1{font-size:28px} .hero-overlay p{font-size:15px} }
+  </style>
 </head>
 <body>
-  <!-- Sticky header -->
   <header class="topbar" id="topbar">
     <div class="container">
       <div class="brand">ElKholy Law Firm</div>
       <nav class="nav">
         <a href="#about" class="nav-link">About Us</a>
-        <a href="#services" class="nav-link">Our Services</a>
+        <a href="#services" class="nav-link">Services</a>
         <a href="#achievements" class="nav-link">Achievements</a>
-        <a href="#contact" class="nav-link">Contact Us</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero" id="hero">
-    <img src="assets/hero.jpg" class="hero-img" alt="Firm banner">
     <div class="hero-overlay">
       <h1 data-aos="fade-down">ElKholy Law Firm</h1>
       <p data-aos="fade-up">Experienced legal services — trusted, professional.</p>
@@ -39,27 +59,22 @@
     </div>
   </section>
 
-  <!-- About -->
   <section class="section" id="about">
     <div class="container" data-aos="fade-up">
       <h2>About Us</h2>
-      <p>Short firm description — replace this copy in index.html or switch to Sheet-driven content later.</p>
+      <p>This is a simple demo. Replace this paragraph in the file or use Windsurf to generate new copy.</p>
     </div>
   </section>
 
-  <!-- Services -->
   <section class="section" id="services">
     <div class="container" data-aos="fade-up">
       <h2>Our Services</h2>
-      <ul class="services-list">
-        <li>Civil Cases</li>
-        <li>Criminal Defense</li>
-        <li>Contract Law</li>
+      <ul>
+        <li>Civil Cases</li><li>Criminal Defense</li><li>Contract Law</li>
       </ul>
     </div>
   </section>
 
-  <!-- Achievements (populated from Google Sheet CSV) -->
   <section class="section" id="achievements">
     <div class="container">
       <h2 data-aos="fade-up">Achievements</h2>
@@ -67,101 +82,51 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section class="section" id="contact">
     <div class="container" data-aos="fade-up">
       <h2>Contact Us</h2>
       <p>Address: (put your address here)</p>
       <p>Email: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
       <p>Phone: +20 ...</p>
-
-      <div id="video-embed" class="video-embed" data-aos="fade-up"></div>
     </div>
   </section>
 
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-fab" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">
-    <span>WA</span>
-  </a>
+  <a class="whatsapp-fab" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">WA</a>
 
-  <footer class="footer">
-    <div class="container">© ElKholy Law Firm</div>
-  </footer>
+  <footer class="footer"><div class="container">© ElKholy Law Firm</div></footer>
 
-  <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/papaparse@5.3.2/papaparse.min.js"></script>
 
   <script>
-    // ---------- CONFIG ----------
-    // Paste here the publish-to-web CSV URL of your Google Sheet:
-    // Example format: https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/pub?output=csv
-    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRAVut55QvKSXF4i9OgmDR56mI4atBwMIJtuX2xda5gkAhviQ5i0sGJnBN2nzyc1_KfGyHu2LmOKQb9/pub?gid=0&single=true&output=csv";
-
-    // Optional: default video to embed in contact if not set in sheet
-    const DEFAULT_VIDEO_EMBED = ""; // e.g. "https://www.youtube.com/embed/VIDEO_ID"
-
-    // ---------- END CONFIG ----------
-
     AOS.init({ once:true, duration:700 });
 
-    // parse and render achievements from CSV using PapaParse
-    function renderAchievements(data){
+    // SAMPLE ACHIEVEMENTS - change these in code for now (or we will wire Sheets next)
+    const ACH = [
+      { title: "Contract Win 2024", text: "Represented a small business successfully.", image: "", aos: "fade-up", youtube: "" },
+      { title: "Community Workshop", text: "Hosted a free workshop for entrepreneurs.", image: "", aos: "fade-left", youtube: "" },
+      { title: "Pro Bono Case", text: "Provided pro-bono counsel to charity.", image: "", aos: "fade-right", youtube: "" }
+    ];
+
+    function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+
+    function render(){
       const grid = document.getElementById('achievements-grid');
       grid.innerHTML = '';
-      data.forEach((row, idx)=>{
-        // expected columns: title, text, image_url, youtube_url, aos
-        const title = row.title || '';
-        const text = row.text || '';
-        const image = row.image_url || '';
-        const youtube = row.youtube_url || '';
-        const aos = row.aos || 'fade-up';
-
+      ACH.forEach(it=>{
         const card = document.createElement('div');
         card.className = 'card';
-        card.setAttribute('data-aos', aos);
-
+        card.setAttribute('data-aos', it.aos || 'fade-up');
         card.innerHTML = `
-          ${image ? `<img src="${image}" alt="${escapeHtml(title)}">` : ''}
-          <h3>${escapeHtml(title)}</h3>
-          <p>${escapeHtml(text)}</p>
-          ${ youtube ? `<div class="yt"><a href="${youtube}" target="_blank">Watch video</a></div>` : '' }
+          ${ it.image ? `<img src="${it.image}" alt="${escapeHtml(it.title)}">` : `<div class="no-image">${escapeHtml(it.title)}</div>` }
+          ${ it.image ? `<h3>${escapeHtml(it.title)}</h3><p>${escapeHtml(it.text)}</p>` : `<p>${escapeHtml(it.text)}</p>` }
+          ${ it.youtube ? `<p><a href="${it.youtube}" target="_blank">Watch video</a></p>` : '' }
         `;
         grid.appendChild(card);
       });
       AOS.refresh();
     }
 
-    function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
-
-    // fetch CSV and parse
-    async function loadSheet(){
-      if(!SHEET_CSV_URL || SHEET_CSV_URL.includes("REPLACE_WITH")) {
-        console.warn('No sheet CSV URL configured. Add your published Google Sheet CSV URL in index.html.');
-        // fallback sample entries
-        renderAchievements([
-          {title:"Sample: Contract Win 2024", text:"Represented client successfully.", image_url:"assets/ach1.jpg", youtube_url:"", aos:"fade-up"},
-          {title:"Sample: Community Workshop", text:"Hosted pro-bono workshop.", image_url:"assets/ach2.jpg", youtube_url:"", aos:"fade-left"}
-        ]);
-        return;
-      }
-      try{
-        const res = await fetch(SHEET_CSV_URL);
-        const csv = await res.text();
-        const parsed = Papa.parse(csv, {header:true, skipEmptyLines:true});
-        renderAchievements(parsed.data);
-      }catch(err){
-        console.error('Load sheet failed', err);
-      }
-    }
-
-    loadSheet();
-
-    // If contact video embed is set from sheet optionally you could parse it similarly.
-    if(DEFAULT_VIDEO_EMBED){
-      document.getElementById('video-embed').innerHTML =
-        `<iframe src="${DEFAULT_VIDEO_EMBED}" allowfullscreen></iframe>`;
-    }
+    render();
   </script>
 </body>
 </html>
