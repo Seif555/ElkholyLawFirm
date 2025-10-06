@@ -14,7 +14,7 @@ html,body{height:100%}
 body{margin:0;color:var(--text);background:var(--bg);line-height:1.6}
 .container{max-width:var(--container);margin:0 auto;padding:24px}
 
-/* topbar */
+/* Topbar */
 .topbar{position:sticky;top:0;background:var(--card-bg);z-index:999;border-bottom:1px solid rgba(0,0,0,0.06);backdrop-filter:saturate(120%) blur(4px)}
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 24px}
 .brand-link{font-weight:700;color:var(--text);text-decoration:none;font-size:18px}
@@ -22,7 +22,7 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6}
 .nav-link{color:var(--text);text-decoration:none;padding:10px 10px;border-radius:6px;font-weight:600}
 .nav-link:hover{background:#f2f6ff}
 
-/* hero */
+/* Hero */
 .hero{height:460px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg,var(--accent) 0%, #0b78e0 100%);color:white}
 .hero-overlay{max-width:920px;text-align:center;padding:12px}
 .hero-overlay h1{font-size:40px;margin:6px 0}
@@ -31,21 +31,21 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6}
 .btn{display:inline-block;background:rgba(255,255,255,0.12);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;font-weight:700;border:1px solid rgba(255,255,255,0.06)}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.22)}
 
-/* sections general */
+/* Sections */
 section{padding:44px 0}
 section.alt{background:var(--card-bg)}
 h2{margin-top:0;font-size:24px}
 
-/* services */
+/* Services */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
 .service{background:var(--card-bg);border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
 
-/* featured */
+/* Featured video placeholder */
 .featured{display:flex;gap:18px;align-items:center;margin:18px 0;padding:16px;background:var(--card-bg);border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
 .featured-media{flex:0 0 360px}
 .video-placeholder{height:200px;border-radius:8px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
 
-/* achievements */
+/* Achievements */
 .achievements-grid{display:flex;flex-direction:column;gap:24px;margin-top:18px}
 .achievement-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
 .ach-img img{width:100%;height:220px;object-fit:cover;border-radius:8px;display:block}
@@ -53,23 +53,25 @@ h2{margin-top:0;font-size:24px}
 .ach-text h3{margin:0 0 8px 0}
 .ach-date{margin-top:8px;color:var(--muted)}
 
-/* team & logos */
+/* Team & logos */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
 .team-card{background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04);text-align:center}
 .team-photo-placeholder{height:120px;border-radius:8px;background:#f3f6ff;color:#111827;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
 .clients-logos{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .logo.ph{min-width:100px;padding:12px;border-radius:8px;background:var(--card-bg);box-shadow:0 6px 18px rgba(15,23,42,0.03);text-align:center}
 
-/* contact + misc */
+/* Contact & footer */
 .contact p{margin:6px 0}
 .muted{color:var(--muted);font-size:14px}
 .footer{padding:18px;text-align:center;background:var(--card-bg);border-top:1px solid rgba(0,0,0,0.06);margin-top:40px}
+
+/* WhatsApp FAB */
 .whatsapp-fab{position:fixed;left:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;z-index:120;box-shadow:0 10px 30px rgba(2,6,23,0.16)}
 
-/* anchor fallback - make sections safe from sticky header */
-.section[id], section[id] { scroll-margin-top: calc(var(--topbar-height) + 12px); }
+/* Anchor safety for sticky header */
+section[id], .section[id] { scroll-margin-top: calc(var(--topbar-height) + 12px); }
 
-/* responsive */
+/* Responsive */
 @media (max-width:880px){
   .achievement-row{grid-template-columns:1fr}
   .featured{flex-direction:column}
