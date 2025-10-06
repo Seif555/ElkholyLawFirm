@@ -1,132 +1,289 @@
 <!doctype html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ElKholy Law Firm — Demo</title>
+  <title>مجموعة الخولي القانونية</title>
 
-  <!-- AOS for on-scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Arabic web font (Cairo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{--accent:#0b5ed7;--bg:#f8f9fb;--text:#222}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
-    .container{max-width:980px;margin:0 auto;padding:28px}
-    .topbar{position:sticky;top:0;background:white;z-index:90;border-bottom:1px solid rgba(0,0,0,0.06)}
-    .topbar .container{display:flex;align-items:center;justify-content:space-between}
-    .brand{font-weight:700;padding:10px}
-    .nav .nav-link{margin-left:12px;text-decoration:none;color:#333}
-    .hero{position:relative;height:420px;overflow:hidden;background:linear-gradient(0deg,#0b5ed7,#0b5ed7)}
-    .hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:12px}
-    .hero-overlay h1{font-size:42px;margin:6px 0}
-    .hero-overlay p{font-size:18px;opacity:0.95}
-    .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;margin:6px;border-radius:6px;text-decoration:none}
-    .section{padding:48px 0}
-    h2{margin-top:0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .card{background:white;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:left;min-height:180px}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
-    .no-image{height:160px;display:flex;align-items:center;justify-content:center;background:#eef3ff;border-radius:6px;color:#0b5ed7;font-weight:700}
-    .whatsapp-fab{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;z-index:120;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
-    .footer{padding:18px;text-align:center;background:#fff;border-top:1px solid rgba(0,0,0,0.06)}
-    .video-embed iframe{width:100%;height:360px;border:0;border-radius:8px}
-    @media (max-width:700px){ .hero-overlay h1{font-size:28px} .hero-overlay p{font-size:15px} }
-  </style>
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Top navigation (sticky) -->
   <header class="topbar" id="topbar">
-    <div class="container">
-      <div class="brand">ElKholy Law Firm</div>
+    <div class="container topbar-inner">
+      <div class="brand">
+        <a class="brand-link" href="/">مجموعة الخولي القانونية</a>
+      </div>
       <nav class="nav">
-        <a href="#about" class="nav-link">About Us</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#achievements" class="nav-link">Achievements</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a class="nav-link" href="#home">الرئيسية</a>
+        <a class="nav-link" href="#about">من نحن</a>
+        <a class="nav-link" href="#services">خدماتنا</a>
+        <a class="nav-link" href="#events">فاعليات</a>
+        <a class="nav-link" href="#team">فريق العمل</a>
+        <a class="nav-link" href="#contact">تواصل معنا</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" id="hero">
-    <div class="hero-overlay">
-      <h1 data-aos="fade-down">ElKholy Law Firm</h1>
-      <p data-aos="fade-up">Experienced legal services — trusted, professional.</p>
-      <div class="hero-buttons" data-aos="zoom-in">
-        <a class="btn" href="#about">About Us</a>
-        <a class="btn" href="#services">Services</a>
-        <a class="btn" href="#achievements">Achievements</a>
-        <a class="btn" href="#contact">Contact</a>
+  <!-- Hero / Home -->
+  <section id="home" class="hero">
+    <div class="hero-overlay container">
+      <h1 data-aos="fade-down">مجموعة الخولي القانونية</h1>
+      <p class="lead" data-aos="fade-up">متخصصون في قانون الجمعيات الاهلية و تنمية المجتمع</p>
+      <div class="hero-ctas" data-aos="zoom-in">
+        <a class="btn" href="#about">تعرف علينا</a>
+        <a class="btn ghost" href="#contact">تواصل معنا</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="about">
+  <!-- About -->
+  <section id="about" class="section">
     <div class="container" data-aos="fade-up">
-      <h2>About Us</h2>
-      <p>This is a simple demo. Replace this paragraph in the file or use Windsurf to generate new copy.</p>
+      <h2>من نحن</h2>
+      <p>
+        تأسست مجموعة الخولى القانونية لأعمال المحاماة والاستشارات القانونية والمالية والإدارية عام 2000.
+        للمكتب خبرات تراكمية في فروع القانون، وبشكل متخصص في قضايا تنظيم العمل الأهلي وتنمية المجتمع.
+      </p>
+      <a class="muted-link" href="#services">اقرأ عن خدماتنا ↓</a>
     </div>
   </section>
 
-  <section class="section" id="services">
+  <!-- Services -->
+  <section id="services" class="section alt">
     <div class="container" data-aos="fade-up">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Civil Cases</li><li>Criminal Defense</li><li>Contract Law</li>
-      </ul>
+      <h2>خدماتنا</h2>
+      <div class="services-grid">
+        <div class="service" data-aos="fade-up" data-aos-delay="50">
+          <h3>المراجعة القانونية</h3>
+          <p>تطوير السياسات والمراجعة القانونية للمشروعات واللوائح الداخلية.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="100">
+          <h3>علاقات حكومية</h3>
+          <p>متابعة معاملات الترخيص والتصاريح أمام وزارة التضامن والجهات المعنية.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="150">
+          <h3>المناقصات والتعاقدات</h3>
+          <p>إعداد ومتابعة مستندات المناقصات والعقود وتقديم المشورة القانونية.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="200">
+          <h3>التطوير والتدريب</h3>
+          <p>ورش عمل وتدريب في الإدارة القانونية للجمعيات ومنظمات المجتمع المدني.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="achievements">
+  <!-- Events / Achievements (image + text alternating sliding) -->
+  <section id="events" class="section">
     <div class="container">
-      <h2 data-aos="fade-up">Achievements</h2>
-      <div id="achievements-grid" class="grid"></div>
+      <h2 data-aos="fade-up">فاعليات مجموعة الخولي</h2>
+
+      <!-- Video / Featured item (placeholder) -->
+      <div class="featured" data-aos="fade-up">
+        <div class="featured-media">
+          <!-- Placeholder for featured video - replace src when available -->
+          <div class="video-placeholder">فيديو مميز (سيتم إدراجه لاحقاً)</div>
+        </div>
+        <div class="featured-body">
+          <h3>عاصم الخولي يوضح الفرق بين الجمعية والمؤسسة</h3>
+          <p class="muted">عرض تلفزيوني — تاريخ: 26 سبتمبر 2023</p>
+        </div>
+      </div>
+
+      <!-- Grid of alternating image/text cards (sliding in alt directions) -->
+      <div id="achievements-grid" class="achievements-grid">
+        <!-- We create entries here via the ACH array below in JS -->
+      </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <!-- Team -->
+  <section id="team" class="section alt">
     <div class="container" data-aos="fade-up">
-      <h2>Contact Us</h2>
-      <p>Address: (put your address here)</p>
-      <p>Email: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
-      <p>Phone: +20 ...</p>
+      <h2>تعرف على فريق العمل</h2>
+      <div class="team-grid">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-photo-placeholder">عاصم الخولي</div>
+          <h3>عاصم الخولي</h3>
+          <p class="muted">مدير مجموعة الخولي القانونية — محامي بالنقض ومستشار قانوني لمنظمات المجتمع المدني</p>
+        </div>
+        <!-- add more team entries if needed -->
+      </div>
     </div>
   </section>
 
-  <a class="whatsapp-fab" href="https://wa.me/201234567890" target="_blank" title="WhatsApp">WA</a>
+  <!-- Clients / Logos -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2>من بين عملائنا</h2>
+      <div class="clients-logos">
+        <!-- placeholders for logos -->
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="footer"><div class="container">© ElKholy Law Firm</div></footer>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container" data-aos="fade-up">
+      <h2>تواصل معنا</h2>
+      <p>العنوان: 344 شارع الهرم, العمرانية, الجيزة, جمهورية مصر العربية</p>
+      <p>البريد: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
+      <p>الهاتف: +201117745552</p>
+      <div class="contact-note muted">يمكنك إرسال استفسارك عبر البريد أو الاتصال بالأرقام أعلاه.</div>
+    </div>
+  </section>
 
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-fab" href="https://wa.me/201117745552" target="_blank" aria-label="WhatsApp">
+    <span>WA</span>
+  </a>
+
+  <footer class="footer">
+    <div class="container">All Rights Reserved © ElKholy Law Firm</div>
+  </footer>
+
+  <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <!-- Achievements data + render logic -->
   <script>
-    AOS.init({ once:true, duration:700 });
+    AOS.init({ once:true, duration:700, offset:120 });
 
-    // SAMPLE ACHIEVEMENTS - change these in code for now (or we will wire Sheets next)
+    // --- Edit these items to match your father's events. Use image URLs or leave blank for placeholders.
     const ACH = [
-      { title: "Contract Win 2024", text: "Represented a small business successfully.", image: "", aos: "fade-up", youtube: "" },
-      { title: "Community Workshop", text: "Hosted a free workshop for entrepreneurs.", image: "", aos: "fade-left", youtube: "" },
-      { title: "Pro Bono Case", text: "Provided pro-bono counsel to charity.", image: "", aos: "fade-right", youtube: "" }
+      {
+        title: "ورشة عمل - 21 فبراير 2023",
+        text: "ورشة عمل للتعريف بقانون تنظيم ممارسة العمال الأهلي بأكاديمية التدريب بهيئة الاستثمار.",
+        image: "", // add image URL or keep blank for placeholder
+        date: "21 فبراير 2023",
+        aos: "fade-left"
+      },
+      {
+        title: "جريدة الأخبار - 28 فبراير 2023",
+        text: "نشر مقال في جريدة الأخبار حول مبادرات القانون.",
+        image: "",
+        date: "28 فبراير 2023",
+        aos: "fade-right"
+      },
+      {
+        title: "مقال - ترتيب الأولويات",
+        text: "مقال بعنوان ترتيب الأولويات ومرونة التيسيرات الضريبية.",
+        image: "",
+        date: "27 سبتمبر 2022",
+        aos: "fade-left"
+      },
+      {
+        title: "الفضائية المصرية - 19 أغسطس 2022",
+        text: "ظهور في برنامج تلفزيوني عن سياسات العمل الأهلي.",
+        image: "",
+        date: "19 أغسطس 2022",
+        aos: "fade-right"
+      }
+      // add more items as needed
     ];
 
     function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
 
-    function render(){
-      const grid = document.getElementById('achievements-grid');
-      grid.innerHTML = '';
-      ACH.forEach(it=>{
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.setAttribute('data-aos', it.aos || 'fade-up');
-        card.innerHTML = `
-          ${ it.image ? `<img src="${it.image}" alt="${escapeHtml(it.title)}">` : `<div class="no-image">${escapeHtml(it.title)}</div>` }
-          ${ it.image ? `<h3>${escapeHtml(it.title)}</h3><p>${escapeHtml(it.text)}</p>` : `<p>${escapeHtml(it.text)}</p>` }
-          ${ it.youtube ? `<p><a href="${it.youtube}" target="_blank">Watch video</a></p>` : '' }
-        `;
-        grid.appendChild(card);
+    // Render alternating image/text blocks
+    function renderAchievements(){
+      const container = document.getElementById('achievements-grid');
+      container.innerHTML = '';
+      ACH.forEach((it, idx) => {
+        const row = document.createElement('div');
+        row.className = 'achievement-row';
+        // alternate layout
+        const imageFirst = (idx % 2 === 0);
+        const imgWrap = document.createElement('div');
+        imgWrap.className = 'ach-img';
+        if(it.image && it.image.trim()){
+          const img = document.createElement('img');
+          img.src = it.image;
+          img.alt = it.title || 'صورة';
+          img.onerror = function(){ this.style.display='none'; imgWrap.appendChild(placeholderElt(it.title)); };
+          imgWrap.appendChild(img);
+        } else {
+          imgWrap.appendChild(placeholderElt(it.title));
+        }
+
+        const txtWrap = document.createElement('div');
+        txtWrap.className = 'ach-text';
+        const h = document.createElement('h3');
+        h.textContent = it.title || '';
+        const p = document.createElement('p');
+        p.textContent = it.text || '';
+        const date = document.createElement('div');
+        date.className = 'ach-date muted';
+        date.textContent = it.date || '';
+        txtWrap.appendChild(h);
+        txtWrap.appendChild(p);
+        txtWrap.appendChild(date);
+
+        // set animation attributes
+        imgWrap.setAttribute('data-aos', imageFirst ? it.aos || 'fade-left' : (it.aos || 'fade-right'));
+        txtWrap.setAttribute('data-aos', imageFirst ? (it.aos || 'fade-right') : (it.aos || 'fade-left'));
+
+        if(imageFirst){
+          row.appendChild(imgWrap);
+          row.appendChild(txtWrap);
+        } else {
+          row.appendChild(txtWrap);
+          row.appendChild(imgWrap);
+        }
+        container.appendChild(row);
       });
       AOS.refresh();
     }
 
-    render();
+    function placeholderElt(title){
+      const ph = document.createElement('div');
+      ph.className = 'image-placeholder';
+      ph.textContent = title || 'صورة';
+      return ph;
+    }
+
+    // anchor offset fix for sticky header
+    (function(){
+      function headerHeight(){ const h = document.querySelector('.topbar'); return h ? h.offsetHeight : 0; }
+      function scrollToHash(){
+        if(location.hash){
+          const el = document.querySelector(location.hash);
+          if(!el) return;
+          const top = window.pageYOffset + el.getBoundingClientRect().top - (headerHeight() + 12);
+          window.scrollTo({ top, behavior:'smooth' });
+        }
+      }
+      // hijack clicks
+      document.addEventListener('click', function(e){
+        const a = e.target.closest('a[href^="#"]');
+        if(!a) return;
+        const hash = a.getAttribute('href');
+        if(hash === '#' || hash === '') return;
+        const target = document.querySelector(hash);
+        if(!target) return;
+        e.preventDefault();
+        const top = window.pageYOffset + target.getBoundingClientRect().top - (headerHeight() + 12);
+        window.scrollTo({ top, behavior:'smooth' });
+        history.pushState(null, '', hash);
+      }, true);
+
+      window.addEventListener('load', function(){ setTimeout(scrollToHash, 70); });
+      window.addEventListener('resize', function(){ /* nothing needed - layout adjusts */ });
+    })();
+
+    // initialize
+    renderAchievements();
   </script>
 </body>
 </html>
