@@ -1,100 +1,78 @@
-/* styles.css — complete theme (RTL) */
 :root{
-  --accent:#0b5ed7;
-  --muted:#6b7280;
-  --bg:#fafafa;
-  --text:#1f2937;
-  --container:1120px;
-  --header-height:72px;
-  font-family: 'Cairo', system-ui, Arial, sans-serif;
+  --accent: #0b5ed7;
+  --muted: #6b7280;
+  --bg: #fafafa;
+  --text: #12202b;
+  --card-bg: #ffffff;
+  --container: 1100px;
+  --topbar-height: 76px;
+  font-family: 'Cairo', system-ui, Arial, Helvetica, sans-serif;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
-body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:rtl}
-.container{max-width:var(--container);margin:0 auto;padding:28px}
+body{margin:0;color:var(--text);background:var(--bg);line-height:1.6}
+.container{max-width:var(--container);margin:0 auto;padding:24px}
 
-/* header (fixed) */
-.topbar{
-  position:fixed;
-  top:0; left:0; right:0;
-  background:#fff;
-  z-index:9999;
-  border-bottom:1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 2px 8px rgba(15,23,42,0.03);
-}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
+/* topbar */
+.topbar{position:sticky;top:0;background:var(--card-bg);z-index:999;border-bottom:1px solid rgba(0,0,0,0.06);backdrop-filter:saturate(120%) blur(4px)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 24px}
 .brand-link{font-weight:700;color:var(--text);text-decoration:none;font-size:18px}
-.nav{display:flex;gap:6px;align-items:center}
-.nav-link{color:#111827;text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600}
+.nav{display:flex;gap:8px;align-items:center}
+.nav-link{color:var(--text);text-decoration:none;padding:10px 10px;border-radius:6px;font-weight:600}
 .nav-link:hover{background:#f2f6ff}
 
-/* social icons small */
-.social-icons{display:flex;gap:8px;align-items:center}
-.social{display:inline-block;padding:6px 8px;border-radius:6px;background:transparent;text-decoration:none;color:#374151;font-weight:700;font-size:13px}
-.social:hover{background:#f3f4f6}
-
 /* hero */
-.hero{height:420px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg,#0b5ed7 0%, #0b78e0 100%);color:white}
-.hero-overlay{max-width:880px;text-align:center;padding:12px}
-.hero-title{font-size:40px;margin:0;font-weight:700}
-.hero-sub{opacity:0.95;margin-top:8px}
-.hero-ctas{margin-top:18px}
-.btn{display:inline-block;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:700}
-.btn-primary{background:#fff;color:#0b5ed7;border:1px solid rgba(255,255,255,0.12)}
+.hero{height:460px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg,var(--accent) 0%, #0b78e0 100%);color:white}
+.hero-overlay{max-width:920px;text-align:center;padding:12px}
+.hero-overlay h1{font-size:40px;margin:6px 0}
+.lead{opacity:0.95;margin-top:8px}
+.hero-ctas{margin-top:14px}
+.btn{display:inline-block;background:rgba(255,255,255,0.12);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;margin:6px;font-weight:700;border:1px solid rgba(255,255,255,0.06)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.22)}
 
-/* sections */
-.section{padding:56px 0}
-.section.alt{background:#ffffff}
+/* sections general */
+section{padding:44px 0}
+section.alt{background:var(--card-bg)}
+h2{margin-top:0;font-size:24px}
 
-/* services grid */
+/* services */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
-.service{background:#fff;border-radius:12px;padding:18px;box-shadow:0 8px 24px rgba(2,6,23,0.04)}
+.service{background:var(--card-bg);border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
 
 /* featured */
-.featured{display:flex;gap:18px;align-items:center;margin:18px 0;padding:16px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-.featured-media{flex:0 0 320px}
-.video-placeholder{height:180px;border-radius:8px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.featured{display:flex;gap:18px;align-items:center;margin:18px 0;padding:16px;background:var(--card-bg);border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.featured-media{flex:0 0 360px}
+.video-placeholder{height:200px;border-radius:8px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;padding:12px}
 
-/* achievements alternating rows */
-.achievements-grid{display:flex;flex-direction:column;gap:22px;margin-top:20px}
+/* achievements */
+.achievements-grid{display:flex;flex-direction:column;gap:24px;margin-top:18px}
 .achievement-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
 .ach-img img{width:100%;height:220px;object-fit:cover;border-radius:8px;display:block}
-.image-placeholder{height:220px;border-radius:8px;background:#eef3ff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;padding:12px;text-align:center}
-.ach-text h3{margin:0 0 8px 0;font-size:18px}
-.ach-date{margin-top:10px;color:var(--muted);font-size:13px}
+.image-placeholder{height:220px;border-radius:8px;background:#eef4ff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;padding:12px;text-align:center}
+.ach-text h3{margin:0 0 8px 0}
+.ach-date{margin-top:8px;color:var(--muted)}
 
-/* team */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
-.team-card{display:flex;gap:14px;align-items:center;background:#fff;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
-.team-photo{flex:0 0 110px}
-.team-photo-placeholder{height:110px;border-radius:8px;background:#e9eaf6;color:#111827;font-weight:700;display:flex;align-items:center;justify-content:center;padding:10px;text-align:center}
-.team-body h3{margin:0;font-size:18px}
-.muted{color:var(--muted);font-size:14px}
-
-/* clients */
+/* team & logos */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+.team-card{background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(15,23,42,0.04);text-align:center}
+.team-photo-placeholder{height:120px;border-radius:8px;background:#f3f6ff;color:#111827;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
 .clients-logos{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.logo.ph{min-width:100px;padding:12px;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,0.03);text-align:center}
+.logo.ph{min-width:100px;padding:12px;border-radius:8px;background:var(--card-bg);box-shadow:0 6px 18px rgba(15,23,42,0.03);text-align:center}
 
-/* contact */
+/* contact + misc */
 .contact p{margin:6px 0}
-
-/* whatsapp fab bottom-left (Arabic style left is okay) */
+.muted{color:var(--muted);font-size:14px}
+.footer{padding:18px;text-align:center;background:var(--card-bg);border-top:1px solid rgba(0,0,0,0.06);margin-top:40px}
 .whatsapp-fab{position:fixed;left:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;z-index:120;box-shadow:0 10px 30px rgba(2,6,23,0.16)}
 
-/* footer */
-.footer{padding:18px;text-align:center;background:#fff;border-top:1px solid rgba(0,0,0,0.06);margin-top:40px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.footer-socials{display:flex;gap:8px}
+/* anchor fallback - make sections safe from sticky header */
+.section[id], section[id] { scroll-margin-top: calc(var(--topbar-height) + 12px); }
 
-/* small screens adjustments */
+/* responsive */
 @media (max-width:880px){
   .achievement-row{grid-template-columns:1fr}
   .featured{flex-direction:column}
-  .nav{display:none} /* mobile nav is outside scope for now */
-  .hero-title{font-size:30px}
-  .hero{height:360px}
+  .nav{display:none}
+  .hero-overlay h1{font-size:30px}
 }
-
-/* anchor offset helper: each section gets a top margin to prevent overlap on old browsers */
-.section, .hero{scroll-margin-top: calc(var(--topbar-height, 72px) + 12px)}
