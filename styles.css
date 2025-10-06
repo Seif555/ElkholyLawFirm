@@ -28,8 +28,9 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
   z-index:9999;
   border-bottom:1px solid var(--gold);
   box-shadow:0 2px 8px rgba(179, 139, 63, 0.1);
+  height: var(--header-height);
 }
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px; height: 100%;}
 .brand-link{font-weight:700;color:var(--gold-dark);text-decoration:none;font-size:18px}
 
 /* Desktop Navigation */
@@ -172,16 +173,65 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 .team-body h3{margin:0;font-size:18px;color:var(--gold-dark)}
 .muted{color:var(--text-light);font-size:14px}
 
-/* clients - PROPER seamless infinite scrolling logo carousel */
-.clients-section{overflow:hidden;padding:40px 0;background:var(--white);position:relative}
-.clients-container{position:relative;width:100%;overflow:hidden}
-.clients-track{display:flex;gap:60px;animation:scroll-infinite 30s linear infinite;will-change:transform;width:max-content}
-.client-logo{flex:0 0 auto;width:180px;height:120px;background:var(--gray-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;position:relative}
+/* NEW Advanced Logo Carousel */
+.advanced-clients-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 40px 0;
+  position: relative;
+  height: 150px;
+}
 
-/* Improved seamless animation - no gaps */
-@keyframes scroll-infinite{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(calc(-180px * 18 - 60px * 17))} /* 3 sets of 6 logos */
+.border {
+  width: 4px;
+  height: 120px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.left-border {
+  margin-left: 20px;
+}
+
+.right-border {
+  margin-right: 20px;
+}
+
+.logos-viewport {
+  width: 1000px; /* 5 logos * 180px + 4 gaps * 25px */
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+  background: var(--gray-light);
+  border-radius: 8px;
+}
+
+.logos-track {
+  display: flex;
+  gap: 25px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  transition: transform 0.1s linear;
+}
+
+.advanced-logo {
+  width: 180px;
+  height: 120px;
+  background: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(179, 139, 63, 0.1);
+  border: 2px solid var(--gray);
 }
 
 /* contact */
@@ -193,9 +243,7 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 /* footer */
 .footer{padding:18px;text-align:center;background:var(--gray-dark);color:var(--white);border-top:3px solid var(--gold);margin-top:40px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.footer-socials{display:flex;gap:8px}
-.footer .social{color:var(--white)}
-.footer .social:hover{color:var(--gold-light)}
+/* Removed footer-socials as requested */
 
 /* anchor offset helper */
 .section, .hero{scroll-margin-top:calc(var(--header-height) + 12px)}
@@ -211,28 +259,69 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
   .hero{height:360px}
   .footer-inner{flex-direction:column;text-align:center}
   
-  /* Mobile logo carousel adjustments */
-  .clients-track{gap:40px}
-  .client-logo{width:140px;height:100px}
-  @keyframes scroll-infinite{
-    0%{transform:translateX(0)}
-    100%{transform:translateX(calc(-140px * 18 - 40px * 17))}
+  /* Mobile advanced logo carousel */
+  .advanced-clients-container {
+    height: 120px;
+    margin: 30px 0;
+  }
+  
+  .logos-viewport {
+    width: 300px; /* Adjusted for mobile */
+    height: 100px;
+  }
+  
+  .advanced-logo {
+    width: 140px;
+    height: 100px;
+    font-size: 16px;
+  }
+  
+  .border {
+    height: 100px;
   }
   
   /* Mobile social icons size adjustment */
   .social{font-size:14px;padding:6px 8px}
 }
 
-/* Landscape mode adjustments */
+/* Landscape mode adjustments - FIXED */
 @media (max-width:880px) and (orientation:landscape){
-  .mobile-nav-overlay{width:220px}
-  .mobile-nav-link{padding:10px 12px;font-size:14px}
+  .mobile-nav-overlay{
+    width: 280px; /* Same as portrait */
+    height: calc(100vh - var(--header-height));
+  }
   
-  /* Show some navigation in landscape if there's space */
-  @media (min-width:640px){
-    .desktop-nav{display:flex;gap:4px}
-    .nav-link{padding:8px 10px;font-size:14px}
-    .mobile-menu-toggle{display:none}
+  .mobile-nav-link{
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  /* Ensure top bar doesn't get too thick in landscape */
+  .topbar {
+    height: var(--header-height);
+  }
+  
+  .topbar-inner {
+    padding: 8px 15px;
+  }
+  
+  /* Hide desktop nav in landscape on mobile */
+  .desktop-nav {
+    display: none;
+  }
+  
+  /* Show mobile menu toggle in landscape */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  /* Adjust logo carousel for landscape */
+  .logos-viewport {
+    width: 500px;
+  }
+  
+  .advanced-logo {
+    width: 160px;
   }
 }
 
@@ -243,16 +332,53 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
   .hero{height:300px}
   .section{padding:40px 0}
   
-  .clients-track{gap:30px}
-  .client-logo{width:120px;height:80px}
-  @keyframes scroll-infinite{
-    0%{transform:translateX(0)}
-    100%{transform:translateX(calc(-120px * 18 - 30px * 17))}
-  }
-  
   .mobile-nav-overlay{width:100%;right:-100%}
   .mobile-nav-overlay.active{right:0}
+  
+  /* Mobile advanced logo carousel for very small screens */
+  .advanced-clients-container {
+    height: 100px;
+  }
+  
+  .logos-viewport {
+    width: 250px;
+    height: 80px;
+  }
+  
+  .advanced-logo {
+    width: 120px;
+    height: 80px;
+    font-size: 14px;
+  }
+  
+  .border {
+    height: 80px;
+  }
+  
+  .left-border {
+    margin-left: 10px;
+  }
+  
+  .right-border {
+    margin-right: 10px;
+  }
 }
 
 /* Prevent body scroll when mobile menu is open */
 body.no-scroll{overflow:hidden}
+
+/* Ensure proper header height on all devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --header-height: 60px;
+  }
+  
+  .topbar {
+    height: 60px;
+  }
+  
+  .mobile-nav-overlay {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+}

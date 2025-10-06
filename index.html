@@ -198,14 +198,18 @@
     </div>
   </section>
 
-  <!-- CLIENTS / LOGOS - Improved Infinite Scrolling -->
+  <!-- CLIENTS / LOGOS - NEW Advanced Infinite Scrolling -->
   <section class="section clients-section">
     <div class="container" data-aos="fade-up">
       <h2>نماذج من شركائنا</h2>
-      <div class="clients-container">
-        <div class="clients-track" id="clientsTrack">
-          <!-- Original Set - Will be populated by JavaScript -->
+      <div class="advanced-clients-container">
+        <div class="border left-border"></div>
+        <div class="logos-viewport">
+          <div class="logos-track" id="advancedLogosTrack">
+            <!-- Logos will be populated by JavaScript -->
+          </div>
         </div>
+        <div class="border right-border"></div>
       </div>
     </div>
   </section>
@@ -238,10 +242,7 @@
     <div class="container">
       <div class="footer-inner">
         <div>© مجموعة الخولي القانونية</div>
-        <div class="footer-socials">
-          <a class="social" href="https://www.linkedin.com/company/مجموعة-الخولي-القانونية" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="social" href="https://www.facebook.com/مجموعة-الخولي-القانونية" target="_blank" rel="noopener">Facebook</a>
-        </div>
+        <!-- Removed social buttons from footer as requested -->
       </div>
     </div>
   </footer>
@@ -253,10 +254,10 @@
   <script>
     // Initialize AOS with retrigger on both scroll directions
     AOS.init({ 
-      once: false, // Animations retrigger every time elements enter viewport
+      once: false,
       duration: 700, 
       offset: 120,
-      mirror: true, // Animations play out when scrolling past them
+      mirror: true,
       throttleDelay: 99,
       debounceDelay: 50
     });
@@ -270,7 +271,7 @@
       const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
       mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
       mobileNavOverlay.classList.toggle('active');
-      body.style.overflow = !isExpanded ? 'hidden' : '';
+      body.classList.toggle('no-scroll');
     }
 
     mobileMenuToggle.addEventListener('click', toggleMobileMenu);
@@ -281,7 +282,7 @@
       link.addEventListener('click', () => {
         mobileNavOverlay.classList.remove('active');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        body.style.overflow = '';
+        body.classList.remove('no-scroll');
       });
     });
 
@@ -290,11 +291,11 @@
       if (e.target === mobileNavOverlay) {
         mobileNavOverlay.classList.remove('active');
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        body.style.overflow = '';
+        body.classList.remove('no-scroll');
       }
     });
 
-    // --- Achievements data: 10 entries with corrected Arabic spelling ---
+    // --- Achievements data ---
     const ACH = [
       { 
         title: "ورشة عمل: حوكمة الجمعيات الأهلية", 
@@ -330,45 +331,10 @@
         image: "", 
         date: "19 مايو 2023", 
         aos: "fade-up" 
-      },
-      { 
-        title: "استشارة فنية: إعادة هيكلة منظمة محلية", 
-        text: "قدمت المجموعة استشارة فنية شاملة لإعادة هيكلة منظمة محلية كبيرة، شملت تعديل اللوائح الداخلية وتطوير هيكل الإدارة وتصميم أنظمة الرقابة المالية والإدارية. ساهمت الاستشارة في تحسين كفاءة المنظمة وشفافيتها.", 
-        image: "", 
-        date: "07 يونيو 2023", 
-        aos: "fade-up" 
-      },
-      { 
-        title: "مؤتمر دولي: تمثيل مصر في مؤتمر المنظمات غير الربحية", 
-        text: "مثلت المجموعة مصر في المؤتمر الدولي للمنظمات غير الربحية الذي عقد في دبي، وقدم المحامي عاصم الخولي ورقة عمل حول التجربة المصرية في تنظيم عمل الجمعيات الأهلية. حظيت الورقة باهتمام كبير من المشاركين.", 
-        image: "", 
-        date: "12 يوليو 2023", 
-        aos: "fade-up" 
-      },
-      { 
-        title: "مبادرة محلية: تدريب الشباب على العمل الأهلي", 
-        text: "أطلقت المجموعة مبادرة 'شباب من أجل التنمية' لتدريب الشباب على أساسيات العمل في المنظمات الأهلية والقوانين المنظمة لها وآليات إنشاء وتسيير الجمعيات. استفاد من المبادرة أكثر من 200 شاب وفتاة.", 
-        image: "", 
-        date: "30 أغسطس 2023", 
-        aos: "fade-up" 
-      },
-      { 
-        title: "بيان صحفي: إعلان شراكة مع مؤسسة خيرية دولية", 
-        text: "أعلنت المجموعة عن توقيع اتفاقية شراكة استراتيجية مع مؤسسة خيرية دولية لتقديم الدعم القانوني للجمعيات المحلية وتسهيل عملياتها في إطار القانون المصري. تهدف الشراكة إلى دعم أكثر من 100 منظمة محلية.", 
-        image: "", 
-        date: "10 سبتمبر 2023", 
-        aos: "fade-up" 
-      },
-      { 
-        title: "مشروع مجتمعي: توعية قانونية للمنظمات الناشئة", 
-        text: "نفذت المجموعة مشروعاً توعوياً شاملاً يهدف إلى تثقيف المنظمات الناشئة بالقوانين واللوائح المنظمة لعملها، وشمل المشروع سلسلة من الندوات والنشرات القانونية المبسطة. استفاد من المشروع أكثر من 150 منظمة ناشئة.", 
-        image: "", 
-        date: "26 أكتوبر 2023", 
-        aos: "fade-up" 
       }
     ];
 
-    // Render achievements as cards in the new grid layout
+    // Render achievements
     function renderAchievements() {
       const container = document.getElementById('achievements-grid');
       container.innerHTML = '';
@@ -391,25 +357,89 @@
 
         container.appendChild(card);
       });
-
       if(window.AOS) AOS.refresh();
     }
 
-    // --- Improved Infinite Scrolling Logos ---
-    function initializeLogoCarousel() {
-      const track = document.getElementById('clientsTrack');
-      const logos = ['شريك 1', 'شريك 2', 'شريك 3', 'شريك 4', 'شريك 5', 'شريك 6'];
-      
-      // Create enough duplicates for seamless looping (3 sets)
-      const duplicatedLogos = [...logos, ...logos, ...logos];
-      
-      track.innerHTML = duplicatedLogos.map(logo => 
-        `<div class="client-logo">${logo}</div>`
-      ).join('');
+    // --- NEW Advanced Logo Carousel ---
+    class AdvancedLogoCarousel {
+      constructor() {
+        this.track = document.getElementById('advancedLogosTrack');
+        this.logos = ['شريك 1', 'شريك 2', 'شريك 3', 'شريك 4', 'شريك 5'];
+        this.visibleCount = 5;
+        this.currentIndex = 0;
+        this.animationId = null;
+        this.speed = 1; // pixels per frame
+        
+        this.init();
+      }
 
-      // Calculate animation duration based on number of logos
-      const animationDuration = duplicatedLogos.length * 2;
-      track.style.animationDuration = `${animationDuration}s`;
+      init() {
+        this.renderLogos();
+        this.startAnimation();
+        
+        // Reset animation when page becomes visible
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) {
+            this.startAnimation();
+          }
+        });
+      }
+
+      renderLogos() {
+        this.track.innerHTML = '';
+        const visibleLogos = this.getVisibleLogos();
+        
+        visibleLogos.forEach(logo => {
+          const logoElement = document.createElement('div');
+          logoElement.className = 'advanced-logo';
+          logoElement.textContent = logo;
+          this.track.appendChild(logoElement);
+        });
+      }
+
+      getVisibleLogos() {
+        const visible = [];
+        for (let i = 0; i < this.visibleCount; i++) {
+          const logoIndex = (this.currentIndex + i) % this.logos.length;
+          visible.push(this.logos[logoIndex]);
+        }
+        return visible;
+      }
+
+      startAnimation() {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+        }
+
+        const animate = () => {
+          this.track.style.transform = `translateX(${this.speed}px)`;
+          
+          // Check if first logo is completely out of view
+          const firstLogo = this.track.children[0];
+          if (firstLogo) {
+            const firstLogoRect = firstLogo.getBoundingClientRect();
+            const viewportRect = this.track.parentElement.getBoundingClientRect();
+            
+            if (firstLogoRect.right <= viewportRect.left) {
+              // Move first logo to the end and update currentIndex
+              this.currentIndex = (this.currentIndex + 1) % this.logos.length;
+              this.renderLogos();
+              this.track.style.transform = 'translateX(0px)';
+            }
+          }
+          
+          this.animationId = requestAnimationFrame(animate);
+        };
+        
+        this.animationId = requestAnimationFrame(animate);
+      }
+
+      stopAnimation() {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      }
     }
 
     function escapeHtml(s){ 
@@ -417,23 +447,23 @@
         .replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); 
     }
 
-    // Initialize both features
+    // Initialize features
     renderAchievements();
-    initializeLogoCarousel();
+    
+    // Initialize advanced carousel when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      new AdvancedLogoCarousel();
+    });
 
-    // Enhanced scroll handling for better animation performance
+    // Enhanced scroll handling
     let lastScrollY = window.scrollY;
     let ticking = false;
 
     function updateScrollDirection() {
       const scrollY = window.scrollY;
-      
       if (!ticking) {
         requestAnimationFrame(() => {
-          // Refresh AOS on scroll to ensure animations trigger in both directions
-          if (window.AOS) {
-            AOS.refresh();
-          }
+          if (window.AOS) AOS.refresh();
           ticking = false;
         });
         ticking = true;
@@ -443,7 +473,7 @@
 
     window.addEventListener('scroll', updateScrollDirection, { passive: true });
 
-    // --- Header and anchor functionality ---
+    // Header and anchor functionality
     (function(){
       const header = document.getElementById('topbar');
       function applyHeaderSpacing(){
@@ -455,7 +485,7 @@
       window.addEventListener('load', applyHeaderSpacing);
       window.addEventListener('resize', applyHeaderSpacing);
 
-      // Anchor clicks: subtract header height so sections are not hidden
+      // Anchor clicks
       document.addEventListener('click', function(e){
         const a = e.target.closest('a[href^="#"]');
         if(!a) return;
@@ -469,7 +499,7 @@
         history.pushState(null, '', href);
       }, true);
 
-      // If page opens with a hash, scroll with offset
+      // If page opens with a hash
       window.addEventListener('load', function(){
         if(location.hash){
           const el = document.querySelector(location.hash);
