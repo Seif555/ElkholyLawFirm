@@ -1,4 +1,4 @@
-/* styles.css — complete theme (RTL) with gold color scheme */
+/* styles.css — complete theme (RTL) with gold color scheme and mobile navigation */
 :root {
   --gold: #b38b3f;
   --gold-light: #d4af37;
@@ -31,14 +31,100 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 }
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px}
 .brand-link{font-weight:700;color:var(--gold-dark);text-decoration:none;font-size:18px}
-.nav{display:flex;gap:6px;align-items:center}
+
+/* Desktop Navigation */
+.desktop-nav{display:flex;gap:6px;align-items:center}
 .nav-link{color:var(--gray-dark);text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600;transition:all 0.3s ease}
 .nav-link:hover{background:var(--gold);color:var(--white)}
+
+/* Header right section */
+.header-right{display:flex;align-items:center;gap:12px}
 
 /* social icons small */
 .social-icons{display:flex;gap:8px;align-items:center}
 .social{display:inline-block;padding:8px 10px;border-radius:6px;background:transparent;text-decoration:none;color:var(--gold-dark);font-weight:700;font-size:16px;transition:all 0.3s ease}
 .social:hover{background:var(--gold);color:var(--white)}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle{
+  display:none;
+  flex-direction:column;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:8px;
+  width:40px;
+  height:40px;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.mobile-menu-toggle span{
+  display:block;
+  width:25px;
+  height:3px;
+  background:var(--gold-dark);
+  border-radius:2px;
+  transition:all 0.3s ease;
+  transform-origin:center;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1){
+  transform:rotate(45deg) translate(6px,6px);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){
+  opacity:0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){
+  transform:rotate(-45deg) translate(6px,-6px);
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay{
+  position:fixed;
+  top:var(--header-height);
+  right:-100%;
+  width:280px;
+  height:calc(100vh - var(--header-height));
+  background:var(--white);
+  box-shadow:-2px 0 10px rgba(0,0,0,0.1);
+  transition:right 0.3s ease;
+  z-index:9998;
+  overflow-y:auto;
+}
+
+.mobile-nav-overlay.active{
+  right:0;
+}
+
+.mobile-nav{
+  display:flex;
+  flex-direction:column;
+  padding:20px;
+  gap:8px;
+}
+
+.mobile-nav-link{
+  color:var(--gray-dark);
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:600;
+  font-size:16px;
+  transition:all 0.3s ease;
+  border-bottom:1px solid var(--gray-light);
+}
+
+.mobile-nav-link:hover{
+  background:var(--gold);
+  color:var(--white);
+}
+
+.mobile-nav-link:last-child{
+  border-bottom:none;
+}
 
 /* hero */
 .hero{height:420px;display:flex;align-items:center;justify-content:center;background:linear-gradient(120deg, var(--gold-dark) 0%, var(--gold) 100%);color:white}
@@ -86,14 +172,16 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 .team-body h3{margin:0;font-size:18px;color:var(--gold-dark)}
 .muted{color:var(--text-light);font-size:14px}
 
-/* clients - PROPER infinite scrolling logo carousel */
+/* clients - PROPER seamless infinite scrolling logo carousel */
 .clients-section{overflow:hidden;padding:40px 0;background:var(--white);position:relative}
 .clients-container{position:relative;width:100%;overflow:hidden}
-.clients-track{display:flex;gap:60px;animation:scroll-infinite 35s linear infinite;will-change:transform}
+.clients-track{display:flex;gap:60px;animation:scroll-infinite 30s linear infinite;will-change:transform;width:max-content}
 .client-logo{flex:0 0 auto;width:180px;height:120px;background:var(--gray-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;position:relative}
+
+/* Improved seamless animation - no gaps */
 @keyframes scroll-infinite{
   0%{transform:translateX(0)}
-  100%{transform:translateX(calc(-180px * 6 - 60px * 5))}
+  100%{transform:translateX(calc(-180px * 18 - 60px * 17))} /* 3 sets of 6 logos */
 }
 
 /* contact */
@@ -114,15 +202,57 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 
 /* small screens adjustments */
 @media (max-width:880px){
+  .desktop-nav{display:none}
+  .mobile-menu-toggle{display:flex}
+  .header-right{gap:8px}
+  
   .featured{flex-direction:column}
-  .nav{display:none}
   .hero-title{font-size:30px}
   .hero{height:360px}
   .footer-inner{flex-direction:column;text-align:center}
-  .clients-track{gap:30px}
+  
+  /* Mobile logo carousel adjustments */
+  .clients-track{gap:40px}
   .client-logo{width:140px;height:100px}
   @keyframes scroll-infinite{
     0%{transform:translateX(0)}
-    100%{transform:translateX(calc(-140px * 6 - 30px * 5))}
+    100%{transform:translateX(calc(-140px * 18 - 40px * 17))}
+  }
+  
+  /* Mobile social icons size adjustment */
+  .social{font-size:14px;padding:6px 8px}
+}
+
+/* Landscape mode adjustments */
+@media (max-width:880px) and (orientation:landscape){
+  .mobile-nav-overlay{width:220px}
+  .mobile-nav-link{padding:10px 12px;font-size:14px}
+  
+  /* Show some navigation in landscape if there's space */
+  @media (min-width:640px){
+    .desktop-nav{display:flex;gap:4px}
+    .nav-link{padding:8px 10px;font-size:14px}
+    .mobile-menu-toggle{display:none}
   }
 }
+
+/* Very small screens */
+@media (max-width:480px){
+  .container{padding:20px}
+  .hero-title{font-size:24px}
+  .hero{height:300px}
+  .section{padding:40px 0}
+  
+  .clients-track{gap:30px}
+  .client-logo{width:120px;height:80px}
+  @keyframes scroll-infinite{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(calc(-120px * 18 - 30px * 17))}
+  }
+  
+  .mobile-nav-overlay{width:100%;right:-100%}
+  .mobile-nav-overlay.active{right:0}
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.no-scroll{overflow:hidden}

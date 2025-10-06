@@ -22,7 +22,8 @@
         <a class="brand-link" href="#home">مجموعة الخولي القانونية</a>
       </div>
 
-      <nav class="nav" role="navigation" aria-label="الرئيسية">
+      <!-- Desktop Navigation -->
+      <nav class="nav desktop-nav" role="navigation" aria-label="الرئيسية">
         <a class="nav-link" href="#home">الرئيسية</a>
         <a class="nav-link" href="#about">من نحن</a>
         <a class="nav-link" href="#services">خدماتنا</a>
@@ -31,11 +32,32 @@
         <a class="nav-link" href="#contact">تواصل معنا</a>
       </nav>
 
-      <div class="social-icons">
-        <a class="social" href="https://wa.me/201117745552" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-        <a class="social" target="_blank" rel="noopener" href="https://www.linkedin.com/company/مجموعة-الخولي-القانونية" aria-label="LinkedIn">in</a>
-        <a class="social" target="_blank" rel="noopener" href="https://www.facebook.com/مجموعة-الخولي-القانونية" aria-label="Facebook">f</a>
+      <div class="header-right">
+        <div class="social-icons">
+          <a class="social" href="https://wa.me/201117745552" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+          <a class="social" target="_blank" rel="noopener" href="https://www.linkedin.com/company/مجموعة-الخولي-القانونية" aria-label="LinkedIn">in</a>
+          <a class="social" target="_blank" rel="noopener" href="https://www.facebook.com/مجموعة-الخولي-القانونية" aria-label="Facebook">f</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="فتح القائمة" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+    </div>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+      <nav class="mobile-nav" role="navigation" aria-label="القائمة الرئيسية للموبايل">
+        <a class="mobile-nav-link" href="#home">الرئيسية</a>
+        <a class="mobile-nav-link" href="#about">من نحن</a>
+        <a class="mobile-nav-link" href="#services">خدماتنا</a>
+        <a class="mobile-nav-link" href="#events">فاعليات</a>
+        <a class="mobile-nav-link" href="#team">تعرف على فريق العمل</a>
+        <a class="mobile-nav-link" href="#contact">تواصل معنا</a>
+      </nav>
     </div>
   </header>
 
@@ -181,21 +203,8 @@
     <div class="container" data-aos="fade-up">
       <h2>نماذج من شركائنا</h2>
       <div class="clients-container">
-        <div class="clients-track">
-          <!-- Original Set -->
-          <div class="client-logo">شريك 1</div>
-          <div class="client-logo">شريك 2</div>
-          <div class="client-logo">شريك 3</div>
-          <div class="client-logo">شريك 4</div>
-          <div class="client-logo">شريك 5</div>
-          <div class="client-logo">شريك 6</div>
-          <!-- Duplicated Set for Seamless Loop -->
-          <div class="client-logo">شريك 1</div>
-          <div class="client-logo">شريك 2</div>
-          <div class="client-logo">شريك 3</div>
-          <div class="client-logo">شريك 4</div>
-          <div class="client-logo">شريك 5</div>
-          <div class="client-logo">شريك 6</div>
+        <div class="clients-track" id="clientsTrack">
+          <!-- Original Set - Will be populated by JavaScript -->
         </div>
       </div>
     </div>
@@ -250,6 +259,39 @@
       mirror: true, // Animations play out when scrolling past them
       throttleDelay: 99,
       debounceDelay: 50
+    });
+
+    // --- Mobile Navigation Functionality ---
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const body = document.body;
+
+    function toggleMobileMenu() {
+      const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileNavOverlay.classList.toggle('active');
+      body.style.overflow = !isExpanded ? 'hidden' : '';
+    }
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu when clicking on links
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavOverlay.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close mobile menu when clicking on overlay background
+    mobileNavOverlay.addEventListener('click', (e) => {
+      if (e.target === mobileNavOverlay) {
+        mobileNavOverlay.classList.remove('active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
     });
 
     // --- Achievements data: 10 entries with corrected Arabic spelling ---
@@ -353,12 +395,31 @@
       if(window.AOS) AOS.refresh();
     }
 
+    // --- Improved Infinite Scrolling Logos ---
+    function initializeLogoCarousel() {
+      const track = document.getElementById('clientsTrack');
+      const logos = ['شريك 1', 'شريك 2', 'شريك 3', 'شريك 4', 'شريك 5', 'شريك 6'];
+      
+      // Create enough duplicates for seamless looping (3 sets)
+      const duplicatedLogos = [...logos, ...logos, ...logos];
+      
+      track.innerHTML = duplicatedLogos.map(logo => 
+        `<div class="client-logo">${logo}</div>`
+      ).join('');
+
+      // Calculate animation duration based on number of logos
+      const animationDuration = duplicatedLogos.length * 2;
+      track.style.animationDuration = `${animationDuration}s`;
+    }
+
     function escapeHtml(s){ 
       return (s||'').toString()
         .replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); 
     }
 
+    // Initialize both features
     renderAchievements();
+    initializeLogoCarousel();
 
     // Enhanced scroll handling for better animation performance
     let lastScrollY = window.scrollY;
