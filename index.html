@@ -54,11 +54,13 @@
     <div class="container">
       <h2>من نحن</h2>
       <p>
-        تأسست مجموعة الخولي القانونية لتقديم خدمات المحاماة والاستشارات القانونية المتخصصة في دعم منظمات المجتمع
-        المدني والجمعيات الأهلية. نعمل مع مؤسسات حكومية وغير حكومية لتقديم حلول قانونية عملية وقابلة للتنفيذ.
+        منذ تأسيسها في عام 2000، تخصصت مجموعة الخولي القانونية في تقديم الاستشارات القانونية 
+        والخدمات المهنية لمنظمات المجتمع المدني والجمعيات الأهلية. نحن نعمل مع أكثر من 500 منظمة 
+        محلية ودولية لتقديم حلول قانونية عملية ومبتكرة.
       </p>
       <p>
-        يتمتع فريق العمل لدينا بخبرة طويلة في مجال الاستشارات القانونية والتشريعية، حيث نسعى دائماً لتقديم أفضل الحلول المبتكرة التي تتناسب مع طبيعة عمل كل منظمة وتهدف إلى تحقيق أهدافها الاستراتيجية في إطار القانون.
+        يتمتع فريقنا بخبرة واسعة في التعامل مع الجهات الحكومية والمانحين الدوليين، مما يمكننا من 
+        تقديم خدمات متكاملة تشمل التسجيل والترخيص والامتثال القانوني والتدريب وبناء القدرات.
       </p>
     </div>
   </section>
@@ -104,11 +106,11 @@
       <!-- Wide video banner -->
       <div class="featured" data-aos="fade-up">
         <div class="featured-media">
-          <div class="video-placeholder">فيديو: عاصم الخوري يوضح الفرق بين الجماعية والمؤسسة مع الناس</div>
+          <div class="video-placeholder">فيديو: عاصم الخولي يوضح الفرق بين الجماعية والمؤسسة مع الناس</div>
         </div>
         <div class="featured-body">
-          <h3>عاصم الخوري يوضح الفرق بين الجماعية والمؤسسة مع الناس</h3>
-          <p class="muted">في هذا الفيديو التوضيحي، يشرح المحامي عاصم الخوري الفروقات الجوهرية بين العمل الجماعي والمؤسسي وأهمية الانتقال من العمل الفردي إلى العمل المؤسسي في منظمات المجتمع المدني، وكيف يمكن للهيكلة القانونية الصحيحة أن تحمي مصالح جميع الأطراف وتضمن استمرارية العمل.</p>
+          <h3>عاصم الخولي يوضح الفرق بين الجماعية والمؤسسة مع الناس</h3>
+          <p class="muted">في هذا الفيديو التوضيحي، يشرح المحامي عاصم الخولي الفروقات الجوهرية بين العمل الجماعي والمؤسسي وأهمية الانتقال من العمل الفردي إلى العمل المؤسسي في منظمات المجتمع المدني، وكيف يمكن للهيكلة القانونية الصحيحة أن تحمي مصالح جميع الأطراف وتضمن استمرارية العمل.</p>
         </div>
       </div>
 
@@ -167,19 +169,20 @@
     </div>
   </section>
 
-  <!-- CLIENTS / LOGOS - Infinite Scrolling -->
+  <!-- CLIENTS / LOGOS - Train Track Infinite Scrolling -->
   <section class="section clients-section">
     <div class="container" data-aos="fade-up">
       <h2>نماذج من شركائنا</h2>
       <div class="clients-container">
         <div class="clients-track">
+          <!-- Original set of 6 logos -->
           <div class="client-logo">شريك 1</div>
           <div class="client-logo">شريك 2</div>
           <div class="client-logo">شريك 3</div>
           <div class="client-logo">شريك 4</div>
           <div class="client-logo">شريك 5</div>
           <div class="client-logo">شريك 6</div>
-          <!-- Duplicate for seamless loop -->
+          <!-- Duplicate set for seamless loop -->
           <div class="client-logo">شريك 1</div>
           <div class="client-logo">شريك 2</div>
           <div class="client-logo">شريك 3</div>
@@ -224,15 +227,17 @@
 
   <!-- Main interactive script -->
   <script>
-    // Initialize AOS with retrigger on scroll
+    // Initialize AOS with retrigger on both scroll directions
     AOS.init({ 
-      once: false, // This makes animations retrigger when scrolling back
+      once: false, // Animations retrigger every time elements enter viewport
       duration: 700, 
       offset: 120,
-      mirror: true // Ensures elements animate out when scrolling past them
+      mirror: true, // Animations play out when scrolling past them
+      throttleDelay: 99,
+      debounceDelay: 50
     });
 
-    // --- Achievements data: 10 entries with full Arabic content ---
+    // --- Achievements data: 10 entries with corrected Arabic spelling ---
     const ACH = [
       { 
         title: "ورشة عمل: حوكمة الجمعيات الأهلية", 
@@ -339,6 +344,28 @@
     }
 
     renderAchievements();
+
+    // Enhanced scroll handling for better animation performance
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateScrollDirection() {
+      const scrollY = window.scrollY;
+      
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Refresh AOS on scroll to ensure animations trigger in both directions
+          if (window.AOS) {
+            AOS.refresh();
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+      lastScrollY = scrollY;
+    }
+
+    window.addEventListener('scroll', updateScrollDirection, { passive: true });
 
     // --- Header and anchor functionality ---
     (function(){

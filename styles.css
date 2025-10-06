@@ -86,14 +86,16 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 .team-body h3{margin:0;font-size:18px;color:var(--gold-dark)}
 .muted{color:var(--text-light);font-size:14px}
 
-/* clients - infinite scrolling logo carousel */
-.clients-section{overflow:hidden;padding:40px 0;background:var(--white)}
-.clients-container{position:relative}
-.clients-track{display:flex;gap:40px;animation:scroll-horizontal 30s linear infinite;padding:20px 0}
-.client-logo{flex:0 0 auto;width:150px;height:100px;background:var(--gray-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700}
-@keyframes scroll-horizontal{
+/* clients - PROPER infinite scrolling logo carousel */
+.clients-section{overflow:hidden;padding:40px 0;background:var(--white);position:relative}
+.clients-container{position:relative;width:100%;overflow:hidden}
+.clients-track{display:flex;gap:60px;animation:scroll-infinite 35s linear infinite;will-change:transform}
+.client-logo{flex:0 0 auto;width:180px;height:120px;background:var(--gray-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;position:relative}
+/* Create seamless loop by duplicating content in CSS */
+.clients-track::before{content:"شريك 1 شريك 2 شريك 3 شريك 4 شريك 5 شريك 6";display:none}
+@keyframes scroll-infinite{
   0%{transform:translateX(0)}
-  100%{transform:translateX(calc(-150px * 6 - 40px * 5))} /* 6 logos with 5 gaps */
+  100%{transform:translateX(calc(-180px * 6 - 60px * 5))}
 }
 
 /* contact */
@@ -119,6 +121,10 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
   .hero-title{font-size:30px}
   .hero{height:360px}
   .footer-inner{flex-direction:column;text-align:center}
-  .clients-track{gap:20px}
-  .client-logo{width:120px;height:80px}
+  .clients-track{gap:30px}
+  .client-logo{width:140px;height:100px}
+  @keyframes scroll-infinite{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(calc(-140px * 6 - 30px * 5))}
+  }
 }
