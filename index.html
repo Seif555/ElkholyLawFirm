@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>مجموعة الخولي القانونية</title>
 
-  <!-- Arabic web font -->
+  <!-- Arabic font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- AOS (animations) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- site stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="topbar" id="topbar">
+
+  <!-- Fixed header -->
+  <header class="topbar" id="topbar" role="banner" aria-label="شريط التصفح الأعلى">
     <div class="container topbar-inner">
-      <div class="brand"><a class="brand-link" href="#home">مجموعة الخولي القانونية</a></div>
-      <nav class="nav" aria-label="التنقل الرئيسي">
+      <div class="brand">
+        <!-- brand links to #home (not external) to avoid GitHub errors -->
+        <a class="brand-link" href="#home">مجموعة الخولي القانونية</a>
+      </div>
+
+      <nav class="nav" role="navigation" aria-label="الرابط الرئيسي">
         <a class="nav-link" href="#home">الرئيسية</a>
         <a class="nav-link" href="#about">من نحن</a>
         <a class="nav-link" href="#services">خدماتنا</a>
@@ -27,170 +31,254 @@
         <a class="nav-link" href="#team">فريق العمل</a>
         <a class="nav-link" href="#contact">تواصل</a>
       </nav>
+
+      <div class="social-icons">
+        <a class="social" target="_blank" rel="noopener" href="#" aria-label="LinkedIn">in</a>
+        <a class="social" target="_blank" rel="noopener" href="#" aria-label="Facebook">f</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-overlay container" data-aos="fade-down">
-        <h1>مجموعة الخولي القانونية</h1>
-        <p class="lead">خبرة قانونية، استشارات متخصصة، ودعم منظمات المجتمع المدني.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="#about">تعرف علينا</a>
-          <a class="btn ghost" href="#contact">تواصل معنا</a>
+  <!-- HERO - single big CTA -->
+  <section id="home" class="hero" aria-label="الصفحة الرئيسية">
+    <div class="hero-overlay container" data-aos="fade-down">
+      <h1 class="hero-title">مجموعة الخولي القانونية</h1>
+      <p class="hero-sub">استشارات قانونية متخصصة في منظمات المجتمع المدني والجمعيات الأهلية</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#about">تعرف علينا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>من نحن</h2>
+      <p>
+        تأسست مجموعة الخولي القانونية لتقديم خدمات المحاماة والاستشارات القانونية المتخصصة في دعم منظمات المجتمع
+        المدني والجمعيات الأهلية. نعمل مع مؤسسات حكومية وغير حكومية لتقديم حلول قانونية عملية وقابلة للتنفيذ.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES (6 boxes) -->
+  <section id="services" class="section alt" data-aos="fade-up">
+    <div class="container">
+      <h2>خدماتنا</h2>
+      <div class="services-grid">
+        <div class="service" data-aos="fade-up" data-aos-delay="40">
+          <h3>الاستشارات القانونية</h3>
+          <p>تحليل الحالات، عقود، وكتابة اللوائح والأنظمة الداخلية.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="80">
+          <h3>التسجيل والترخيص</h3>
+          <p>متابعة إجراءات تأسيس الجمعيات والمؤسسات أمام الجهات الرسمية.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="120">
+          <h3>التوافق والحوكمة</h3>
+          <p>بناء نظام حوكمة يتوافق مع القوانين المحلية ومتطلبات المانحين.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="160">
+          <h3>عقود ومناقصات</h3>
+          <p>صياغة عقود التوريد والشراكات وإجراءات العطاءات والمناقصات.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="200">
+          <h3>الدفاع القانوني</h3>
+          <p>تمثيل أمام المحاكم والجهات الإدارية والدفاع عن مصالح العملاء.</p>
+        </div>
+        <div class="service" data-aos="fade-up" data-aos-delay="240">
+          <h3>تدريب وتطوير</h3>
+          <p>ورش عمل لرفع قدرات الإدارات القانونية والعاملين بمنظمات المجتمع المدني.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container" data-aos="fade-up">
-        <h2>من نحن</h2>
-        <p>نقدم خدمات قانونية واستشارية للمؤسسات والجمعيات. خبراتنا تغطي العقود، الحوكمة، والتراخيص.</p>
-      </div>
-    </section>
+  <!-- EVENTS / ACHIEVEMENTS -->
+  <section id="events" class="section" aria-label="فعاليات" data-aos="fade-up">
+    <div class="container">
+      <h2>فاعليات مجموعة الخولي</h2>
 
-    <!-- Services -->
-    <section id="services" class="section alt">
-      <div class="container" data-aos="fade-up">
-        <h2>خدماتنا</h2>
-        <div class="services-grid">
-          <div class="service" data-aos="fade-up" data-aos-delay="40">
-            <h3>الاستشارات القانونية</h3>
-            <p>قضايا مدنية، عقود، وتمثيل قضائي.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="80">
-            <h3>التراخيص والتنظيم</h3>
-            <p>متابعة إجراءات الترخيص للمنظمات والجمعيات.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="120">
-            <h3>العقود والمناقصات</h3>
-            <p>إعداد مستندات المناقصات وصياغة العقود.</p>
-          </div>
-          <div class="service" data-aos="fade-up" data-aos-delay="160">
-            <h3>التدريب وورش العمل</h3>
-            <p>ورش لتأهيل الإدارات ومجلس الإدارة في المنظمات.</p>
-          </div>
+      <!-- featured video placeholder -->
+      <div class="featured" data-aos="fade-up">
+        <div class="featured-media">
+          <div class="video-placeholder">فيديو مميز - سيتم الإدراج لاحقاً</div>
+        </div>
+        <div class="featured-body">
+          <h3>عنوان الفيديو أو الحلقة التعريفية</h3>
+          <p class="muted">وصف قصير للفيديو — مثال: مشاركة تلفزيونية أو حلقة تعريفية.</p>
         </div>
       </div>
-    </section>
 
-    <!-- Events / Achievements -->
-    <section id="events" class="section">
-      <div class="container">
-        <h2 data-aos="fade-up">فاعليات وإنجازات</h2>
-
-        <!-- Featured video placeholder -->
-        <div class="featured" data-aos="fade-up" data-aos-delay="40">
-          <div class="featured-media">
-            <div class="video-placeholder">مكان الفيديو (يوتيوب) - سيتم إدراجه لاحقًا</div>
-          </div>
-          <div class="featured-body">
-            <h3>مداخلة تلفزيونية</h3>
-            <p class="muted">حلقة - تاريخ: 19 مارس 2023</p>
-            <p>شرح حول أحكام القانون ودعم المنظمات.</p>
-          </div>
-        </div>
-
-        <!-- Achievements list (rendered by JS) -->
-        <div id="achievements-grid" class="achievements-grid"></div>
+      <!-- big row of 10 boxes (image + text) -->
+      <div id="achievements-grid" class="achievements-grid" aria-live="polite">
+        <!-- items are rendered by JS (below). We ensured there are 10 placeholders. -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Team -->
-    <section id="team" class="section alt">
-      <div class="container" data-aos="fade-up">
-        <h2>فريق العمل</h2>
-        <div class="team-grid">
-          <div class="team-card" data-aos="fade-up">
+  <!-- TEAM -->
+  <section id="team" class="section alt" data-aos="fade-up">
+    <div class="container">
+      <h2>فريق العمل</h2>
+      <div class="team-grid">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-photo"> <!-- photo sits visually on the left -->
             <div class="team-photo-placeholder">عاصم الخولي</div>
+          </div>
+          <div class="team-body">
             <h3>عاصم الخولي</h3>
-            <p class="muted">مدير و محامي استشاري</p>
+            <p class="muted">مدير المجموعة — محامي بالنقض ومستشار قانوني لمنظمات المجتمع المدني.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-      <div class="container" data-aos="fade-up">
-        <h2>تواصل معنا</h2>
-        <p>العنوان: شارع الهرم، الجيزة، مصر</p>
-        <p>البريد: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
-        <p>الهاتف: +20 111 774 5552</p>
-      </div>
-    </section>
-  </main>
+        <div class="team-card" data-aos="fade-up" data-aos-delay="60">
+          <div class="team-photo">
+            <div class="team-photo-placeholder">جميلة أحمد</div>
+          </div>
+          <div class="team-body">
+            <h3>جميلة أحمد</h3>
+            <p class="muted">استشاري برامج وامتثال الجهات المانحة.</p>
+          </div>
+        </div>
 
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-fab" href="https://wa.me/201117745552" target="_blank" aria-label="WhatsApp">WA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS / LOGOS -->
+  <section class="section">
+    <div class="container" data-aos="fade-up">
+      <h2>نماذج من شركائنا</h2>
+      <div class="clients-logos">
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+        <div class="logo ph">شعار</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact" data-aos="fade-up">
+    <div class="container">
+      <h2>تواصل معنا</h2>
+      <p>العنوان: 344 شارع الهرم, العمرانية, الجيزة</p>
+      <p>البريد الإلكتروني: <a href="mailto:elkholy@elkholylawfirm.com">elkholy@elkholylawfirm.com</a></p>
+      <p>الهاتف: +201117745552</p>
+      <!-- Removed the "don't fill this out" text as requested -->
+    </div>
+  </section>
+
+  <!-- bottom social + whatsapp -->
+  <a class="whatsapp-fab" href="https://wa.me/201117745552" target="_blank" aria-label="WhatsApp">
+    <span>WA</span>
+  </a>
 
   <footer class="footer">
-    <div class="container">© مجموعة الخولي القانونية</div>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© مجموعة الخولي القانونية</div>
+        <div class="footer-socials">
+          <a class="social" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="social" href="#" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <!-- Main interactive script: header, anchors, achievements rendering -->
   <script>
-    /* ---------- INIT AOS ---------- */
-    AOS.init({ once:true, duration:700, offset:120 });
+    AOS.init({ once: true, duration: 700, offset: 120 });
 
-    /* ---------- Achievements data - edit these or leave image empty for placeholder ---------- */
+    // --- Achievements data: 10 entries (placeholders) ---
     const ACH = [
-      { title: "ورشة عمل: الإدارة القانونية", text: "ورشة تدريبية لتطوير مهارات فرق العمل.", image: "", date: "21 فبراير 2024", aos: "fade-left" },
-      { title: "مقال رأي: تحسين الحوكمة", text: "مقال في صحف محلية عن مبادئ الحوكمة.", image: "", date: "10 يناير 2024", aos: "fade-right" },
-      { title: "ورشة توعوية بالأقصر", text: "فعاليات توعية قانونية للمجتمع المحلي.", image: "", date: "5 ديسمبر 2023", aos: "fade-left" },
-      { title: "سلسلة تعليمية قانونية", text: "دورات وتدريب للكفاءات الشابة.", image: "", date: "28 أكتوبر 2023", aos: "fade-right" }
+      { title: "ورشة عمل: حوكمة الجمعيات", text: "ورشة تدريبية حول الحوكمة والشفافية.", image: "", date: "21 فبراير 2023", aos: "fade-left" },
+      { title: "مقال في جريدة", text: "مقال تحليلي حول القوانين المؤثرة.", image: "", date: "28 فبراير 2023", aos: "fade-right" },
+      { title: "حلقة تلفزيونية", text: "مقابلة مع القناة الوطنية حول تمويل المشروعات.", image: "", date: "15 مارس 2023", aos: "fade-left" },
+      { title: "ندوة إلكترونية", text: "ندوة عن الامتثال للمانحين.", image: "", date: "2 أبريل 2023", aos: "fade-right" },
+      { title: "دورة تدريبية", text: "تدريب على صياغة العقود للجمعيات.", image: "", date: "19 مايو 2023", aos: "fade-left" },
+      { title: "استشارة فنية", text: "خدمات استشارية لإعادة هيكلة منظمة.", image: "", date: "07 يونيو 2023", aos: "fade-right" },
+      { title: "حضور مؤتمر", text: "مشاركة في مؤتمر دولي حول التنمية.", image: "", date: "12 يوليو 2023", aos: "fade-left" },
+      { title: "مبادرة محلية", text: "إطلاق مبادرة تدريب الشباب.", image: "", date: "30 أغسطس 2023", aos: "fade-right" },
+      { title: "بيان صحفي", text: "إعلان شراكة مع مؤسسة خيرية.", image: "", date: "10 سبتمبر 2023", aos: "fade-left" },
+      { title: "مشروع مجتمعي", text: "تنفيذ مشروع توعية قانونية.", image: "", date: "26 أكتوبر 2023", aos: "fade-right" }
     ];
 
-    /* ---------- Helper to escape text for safe HTML insertion ---------- */
-    function escapeHtml(s){
-      return (s||'').toString().replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
-    }
-
-    /* ---------- Render achievements as single-parent HTML blocks (no JSX/fragment issues) ---------- */
-    function renderAchievementsList() {
+    // Render achievements into alternating rows (image + text)
+    function renderAchievements() {
       const container = document.getElementById('achievements-grid');
-      if (!container) return;
+      container.innerHTML = '';
+      ACH.forEach((it, idx) => {
+        const row = document.createElement('div');
+        row.className = 'achievement-row';
 
-      let html = '';
-      ACHIEVEMENTS.forEach((achievement, idx) => {
-        const imageFirst = idx % 2 === 0;
-        const imgHtml = achievement.image && achievement.image.trim()
-          ? `<div class="ach-img"><img src="${escapeHtml(achievement.image)}" alt="${escapeHtml(achievement.title)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="image-placeholder" style="display:none">${escapeHtml(achievement.title)}</div></div>`
-          : `<div class="ach-img"><div class="image-placeholder">${escapeHtml(achievement.title)}</div></div>`;
-
-        const textHtml = `<div class="ach-text"><h3>${escapeHtml(achievement.title)}</h3><p>${escapeHtml(achievement.text)}</p><div class="ach-date muted">${escapeHtml(achievement.date)}</div></div>`;
-
-        // Set AOS directions (alternating)
-        const leftAnim = achievement.aos || 'fade-left';
-        const rightAnim = (achievement.aos === 'fade-left') ? 'fade-right' : (achievement.aos || 'fade-right');
-
-        // Single parent HTML string for each row
-        if (imageFirst) {
-          html += `<div class="achievement-row"><div class="ach-img" data-aos="${leftAnim}">${imgHtml}</div><div class="ach-text" data-aos="${rightAnim}">${textHtml}</div></div>`;
+        const imgWrap = document.createElement('div');
+        imgWrap.className = 'ach-img';
+        if(it.image && it.image.trim()){
+          const img = document.createElement('img');
+          img.src = it.image;
+          img.alt = it.title || 'صورة';
+          img.onerror = function(){ this.style.display='none'; imgWrap.appendChild(placeholderElt(it.title)); };
+          imgWrap.appendChild(img);
         } else {
-          html += `<div class="achievement-row"><div class="ach-text" data-aos="${leftAnim}">${textHtml}</div><div class="ach-img" data-aos="${rightAnim}">${imgHtml}</div></div>`;
+          imgWrap.appendChild(placeholderElt(it.title));
         }
+
+        const txtWrap = document.createElement('div');
+txtWrap.className = 'ach-text';
+txtWrap.innerHTML = `
+  <h3>${escapeHtml(it.title)}</h3>
+  <p>${escapeHtml(it.text)}</p>
+  <div class="ach-date muted">${escapeHtml(it.date)}</div>
+`;
+
+        // set aos direction: alternate slides left/right
+        const leftFirst = (idx % 2 === 0);
+        imgWrap.setAttribute('data-aos', leftFirst ? (it.aos || 'fade-left') : (it.aos || 'fade-right'));
+        txtWrap.setAttribute('data-aos', leftFirst ? (it.aos || 'fade-right') : (it.aos || 'fade-left'));
+
+        if(leftFirst){
+          row.appendChild(imgWrap);
+          row.appendChild(txtWrap);
+        } else {
+          row.appendChild(txtWrap);
+          row.appendChild(imgWrap);
+        }
+
+        container.appendChild(row);
       });
-      container.innerHTML = html;
-      AOS.refresh();
+
+      if(window.AOS) AOS.refresh();
     }
 
-    /* ---------- Anchor offset (sticky header) - intercept in-page links ---------- */
+    function placeholderElt(title){
+      const ph = document.createElement('div');
+      ph.className = 'image-placeholder';
+      ph.textContent = title || 'صورة';
+      return ph;
+    }
+
+    function escapeHtml(s){ return (s||'').toString().replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]); }
+
+    renderAchievements();
+
+    // --- Make header fixed and set body padding so content isn't hidden ---
     (function(){
-      const topbar = document.getElementById('topbar');
-      function getTopbarHeight(){ return topbar ? topbar.offsetHeight : 72; }
-      function scrollToHashWithOffset(hash){
-        if(!hash) return;
-        const target = document.querySelector(hash);
-        if(!target) return;
-        const top = window.pageYOffset + target.getBoundingClientRect().top - (getTopbarHeight() + 12);
-        window.scrollTo({ top, behavior: 'smooth' });
+      const header = document.getElementById('topbar');
+      function applyHeaderSpacing(){
+        if(!header) return;
+        const h = header.offsetHeight;
+        document.documentElement.style.setProperty('--topbar-height', h + 'px');
+        document.body.style.paddingTop = h + 'px';
       }
-      // intercept clicks to anchor links
+      window.addEventListener('load', applyHeaderSpacing);
+      window.addEventListener('resize', applyHeaderSpacing);
+
+      // Anchor clicks: subtract header height so sections are not hidden
       document.addEventListener('click', function(e){
         const a = e.target.closest('a[href^="#"]');
         if(!a) return;
@@ -199,15 +287,23 @@
         const target = document.querySelector(hash);
         if(!target) return;
         e.preventDefault();
-        scrollToHashWithOffset(hash);
+        const top = window.pageYOffset + target.getBoundingClientRect().top - (header.offsetHeight + 12);
+        window.scrollTo({ top, behavior: 'smooth' });
         history.pushState(null, '', hash);
       }, true);
 
-      // On load if URL contains a hash
-      window.addEventListener('load', function(){ setTimeout(()=>{
-        renderAchievementsList(); // ensure achievements exist before scrolling
-        if(location.hash){ scrollToHashWithOffset(location.hash); }
-      }, 80); });
-
-      window.addEventListener('resize', function(){ /* topbar height auto-handled */ });
+      // If page opens with a hash, scroll with offset
+      window.addEventListener('load', function(){
+        if(location.hash){
+          const el = document.querySelector(location.hash);
+          if(el){
+            const top = window.pageYOffset + el.getBoundingClientRect().top - (header.offsetHeight + 12);
+            setTimeout(()=>window.scrollTo({top, behavior:'smooth'}), 80);
+          }
+        }
+      });
     })();
+
+  </script>
+</body>
+</html>
