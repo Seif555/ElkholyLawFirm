@@ -101,18 +101,18 @@
     <div class="container">
       <h2>فاعليات مجموعة الخولي</h2>
 
-      <!-- featured video placeholder -->
+      <!-- Wide video banner -->
       <div class="featured" data-aos="fade-up">
         <div class="featured-media">
-          <div class="video-placeholder">فيديو مميز - سيتم الإدراج لاحقاً</div>
+          <div class="video-placeholder">فيديو: عاصم الخوري يوضح الفرق بين الجماعية والمؤسسة مع الناس</div>
         </div>
         <div class="featured-body">
           <h3>عاصم الخوري يوضح الفرق بين الجماعية والمؤسسة مع الناس</h3>
-          <p class="muted">في هذا الفيديو التوضيحي، يشرح المحامي عاصم الخوري الفروقات الجوهرية بين العمل الجماعي والمؤسسي وأهمية الانتقال من العمل الفردي إلى العمل المؤسسي في منظمات المجتمع المدني.</p>
+          <p class="muted">في هذا الفيديو التوضيحي، يشرح المحامي عاصم الخوري الفروقات الجوهرية بين العمل الجماعي والمؤسسي وأهمية الانتقال من العمل الفردي إلى العمل المؤسسي في منظمات المجتمع المدني، وكيف يمكن للهيكلة القانونية الصحيحة أن تحمي مصالح جميع الأطراف وتضمن استمرارية العمل.</p>
         </div>
       </div>
 
-      <!-- NEW: Grid of achievement boxes -->
+      <!-- Grid of achievement boxes -->
       <div id="achievements-grid" class="achievements-grid" aria-live="polite">
         <!-- Items will be rendered by JavaScript below -->
       </div>
@@ -167,17 +167,26 @@
     </div>
   </section>
 
-  <!-- CLIENTS / LOGOS -->
-  <section class="section">
+  <!-- CLIENTS / LOGOS - Infinite Scrolling -->
+  <section class="section clients-section">
     <div class="container" data-aos="fade-up">
       <h2>نماذج من شركائنا</h2>
-      <div class="clients-logos">
-        <div class="logo ph">شعار</div>
-        <div class="logo ph">شعار</div>
-        <div class="logo ph">شعار</div>
-        <div class="logo ph">شعار</div>
-        <div class="logo ph">شعار</div>
-        <div class="logo ph">شعار</div>
+      <div class="clients-container">
+        <div class="clients-track">
+          <div class="client-logo">شريك 1</div>
+          <div class="client-logo">شريك 2</div>
+          <div class="client-logo">شريك 3</div>
+          <div class="client-logo">شريك 4</div>
+          <div class="client-logo">شريك 5</div>
+          <div class="client-logo">شريك 6</div>
+          <!-- Duplicate for seamless loop -->
+          <div class="client-logo">شريك 1</div>
+          <div class="client-logo">شريك 2</div>
+          <div class="client-logo">شريك 3</div>
+          <div class="client-logo">شريك 4</div>
+          <div class="client-logo">شريك 5</div>
+          <div class="client-logo">شريك 6</div>
+        </div>
       </div>
     </div>
   </section>
@@ -213,9 +222,15 @@
   <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Main interactive script: header, anchors, achievements rendering -->
+  <!-- Main interactive script -->
   <script>
-    AOS.init({ once: true, duration: 700, offset: 120 });
+    // Initialize AOS with retrigger on scroll
+    AOS.init({ 
+      once: false, // This makes animations retrigger when scrolling back
+      duration: 700, 
+      offset: 120,
+      mirror: true // Ensures elements animate out when scrolling past them
+    });
 
     // --- Achievements data: 10 entries with full Arabic content ---
     const ACH = [
@@ -325,7 +340,7 @@
 
     renderAchievements();
 
-    // --- Make header fixed and set body padding so content isn't hidden ---
+    // --- Header and anchor functionality ---
     (function(){
       const header = document.getElementById('topbar');
       function applyHeaderSpacing(){
