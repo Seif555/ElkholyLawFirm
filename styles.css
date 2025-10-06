@@ -37,7 +37,7 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 
 /* social icons small */
 .social-icons{display:flex;gap:8px;align-items:center}
-.social{display:inline-block;padding:6px 8px;border-radius:6px;background:transparent;text-decoration:none;color:var(--gold-dark);font-weight:700;font-size:13px;transition:all 0.3s ease}
+.social{display:inline-block;padding:8px 10px;border-radius:6px;background:transparent;text-decoration:none;color:var(--gold-dark);font-weight:700;font-size:16px;transition:all 0.3s ease}
 .social:hover{background:var(--gold);color:var(--white)}
 
 /* hero */
@@ -91,8 +91,6 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 .clients-container{position:relative;width:100%;overflow:hidden}
 .clients-track{display:flex;gap:60px;animation:scroll-infinite 35s linear infinite;will-change:transform}
 .client-logo{flex:0 0 auto;width:180px;height:120px;background:var(--gray-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;position:relative}
-/* Create seamless loop by duplicating content in CSS */
-.clients-track::before{content:"شريك 1 شريك 2 شريك 3 شريك 4 شريك 5 شريك 6";display:none}
 @keyframes scroll-infinite{
   0%{transform:translateX(0)}
   100%{transform:translateX(calc(-180px * 6 - 60px * 5))}
@@ -100,9 +98,9 @@ body{margin:0;color:var(--text);background:var(--bg);line-height:1.6;direction:r
 
 /* contact */
 .contact p{margin:6px 0}
-
-/* whatsapp fab */
-.whatsapp-fab{position:fixed;left:18px;bottom:18px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;z-index:120;box-shadow:0 10px 30px rgba(2,6,23,0.16)}
+.contact-socials{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.social-btn{display:inline-block;padding:10px 20px;background:var(--gold);color:white;text-decoration:none;border-radius:6px;font-weight:600;transition:all 0.3s ease}
+.social-btn:hover{background:var(--gold-dark)}
 
 /* footer */
 .footer{padding:18px;text-align:center;background:var(--gray-dark);color:var(--white);border-top:3px solid var(--gold);margin-top:40px}
