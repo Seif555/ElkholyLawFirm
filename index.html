@@ -198,7 +198,7 @@
     </div>
   </section>
 
-  <!-- CLIENTS / LOGOS - NEW Advanced Infinite Scrolling -->
+  <!-- CLIENTS / LOGOS - Improved Infinite Scrolling -->
   <section class="section clients-section">
     <div class="container" data-aos="fade-up">
       <h2>نماذج من شركائنا</h2>
@@ -246,6 +246,32 @@
       </div>
     </div>
   </footer>
+
+  <!-- StatCounter Code - Placed just before closing body tag as recommended -->
+  <!-- Default Statcounter code for ElkholyLawFirm
+https://seif555.github.io/ElkholyLawFirm/ -->
+  <script type="text/javascript">
+    var sc_project=13175274; 
+    var sc_invisible=1; 
+    var sc_security="dbfdb27d"; 
+  </script>
+  <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter">
+      <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
+        <img class="statcounter"
+          src="https://c.statcounter.com/13175274/0/dbfdb27d/1/" alt="Web Analytics"
+          referrerPolicy="no-referrer-when-downgrade">
+      </a>
+    </div>
+  </noscript>
+  <!-- End of StatCounter Code -->
+
+  <!-- Optional: Stats Viewing Link -->
+  <div style="display: none;">
+    <a href="https://statcounter.com/p13175274/?guest=1">View My Stats</a>
+  </div>
 
   <!-- libs -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -360,7 +386,7 @@
       if(window.AOS) AOS.refresh();
     }
 
-    // --- NEW Advanced Logo Carousel ---
+    // --- Advanced Logo Carousel ---
     class AdvancedLogoCarousel {
       constructor() {
         this.track = document.getElementById('advancedLogosTrack');
@@ -368,7 +394,7 @@
         this.visibleCount = 5;
         this.currentIndex = 0;
         this.animationId = null;
-        this.speed = 1; // pixels per frame
+        this.speed = 1;
         
         this.init();
       }
@@ -377,7 +403,6 @@
         this.renderLogos();
         this.startAnimation();
         
-        // Reset animation when page becomes visible
         document.addEventListener('visibilitychange', () => {
           if (!document.hidden) {
             this.startAnimation();
@@ -414,14 +439,12 @@
         const animate = () => {
           this.track.style.transform = `translateX(${this.speed}px)`;
           
-          // Check if first logo is completely out of view
           const firstLogo = this.track.children[0];
           if (firstLogo) {
             const firstLogoRect = firstLogo.getBoundingClientRect();
             const viewportRect = this.track.parentElement.getBoundingClientRect();
             
             if (firstLogoRect.right <= viewportRect.left) {
-              // Move first logo to the end and update currentIndex
               this.currentIndex = (this.currentIndex + 1) % this.logos.length;
               this.renderLogos();
               this.track.style.transform = 'translateX(0px)';
@@ -450,7 +473,6 @@
     // Initialize features
     renderAchievements();
     
-    // Initialize advanced carousel when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
       new AdvancedLogoCarousel();
     });
